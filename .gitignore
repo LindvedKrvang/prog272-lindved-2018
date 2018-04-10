@@ -7,6 +7,7 @@ yarn-error.log*
 
 # Other
 .idea
+.c9
 
 # Runtime data
 pids
