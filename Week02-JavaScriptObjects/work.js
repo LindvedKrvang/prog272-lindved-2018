@@ -8,7 +8,7 @@ const person = {
     }
 }
 
-const calculator = {
+var calculator = {
     operand01: -1,
     operand02: -1,
     add: function(){
