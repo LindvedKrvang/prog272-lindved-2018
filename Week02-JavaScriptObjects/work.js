@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var person = {
+const person = {
     firstName: "Rasmus",
     lastName: "Lindved",
     fullName: function(){
@@ -8,7 +8,7 @@ var person = {
     }
 }
 
-var calculator = {
+const calculator = {
     operand01: -1,
     operand02: -1,
     add: function(){
