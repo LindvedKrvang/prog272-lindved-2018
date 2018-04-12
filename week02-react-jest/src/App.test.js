@@ -14,8 +14,8 @@ describe('Jest Create React Tests', function () {
 
     it('renders and reads H1 text', () => {
         const wrapper = shallow(<App />);
-        const welcome = <h2>Welcome to React</h2>;
-        expect(wrapper.contains(welcome)).toEqaul(true);
+        const welcome = <h1 className="App-title">Welcome to React</h1>;
+        expect(wrapper.contains(welcome)).toBe(true);
     });
 });
 
