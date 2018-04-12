@@ -3,7 +3,7 @@
 const person = {
     firstName: "Rasmus",
     lastName: "Lindved",
-    fullName: function(){
+    fullName: function(){'use strict';
         return this.firstName + " " + this.lastName;
     }
 }
@@ -11,15 +11,15 @@ const person = {
 const calculator = {
     operand01: -1,
     operand02: -1,
-    add: function(){
+    add: function(){'use strict';
         return this.operand01 + this.operand02;
     },
-    subtract: function(){
+    subtract: function(){'use strict';
         return this.operand01 - this.operand02;
     }
 }
 
-calculator.multiply = function(){
+calculator.multiply = function(){'use strict';
     return this.operand01 * this.operand02;
 }
 
