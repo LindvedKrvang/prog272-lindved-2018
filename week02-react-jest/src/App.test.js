@@ -14,8 +14,14 @@ describe('Jest Create React Tests', function () {
 
     it('renders and reads H1 text', () => {
         const wrapper = shallow(<App />);
-        const welcome = <h1 className="App-title"u>Welcome to React</h1>;
+        const welcome = <h1 className="App-title">Welcome to React</h1>;
         expect(wrapper.contains(welcome)).toBe(true);
+    });
+
+    it('Renders and displays the default first name', () =>{
+        const wrapper = shallow(<App />);
+        const firstName = wrapper.find('p').last().debug();
+        console.log(firstName);
     });
 });
 
