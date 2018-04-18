@@ -22,7 +22,7 @@ class App extends Component {
         </header>
           <p className="App-intro">First Name: {this.state.firstName}</p>
         <p className="App-intro">File: {this.state.file}</p>
-          <button id='getFile' onClick={this.getFile}>Get File</button>
+          <button id='btnGetFile' onClick={this.getFile}>Get File</button>
       </div>
     );
   }
