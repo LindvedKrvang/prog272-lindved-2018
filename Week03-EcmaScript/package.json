@@ -4,7 +4,8 @@
   "description": "Learn about ES6",
   "main": "InClassExample.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel InClassExample.js -d bundle"
   },
   "repository": {
     "type": "git",
