@@ -1,31 +1,32 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 
 class App extends Component {
 
-    constructor() {
-        super();
+
+
+    constructor(props) {
+        super(props);
+
+        console.log("Address Props", typeof this.props)
+        const address = this.props.addressList[0];
+
         this.state = {
-            file: 'unknown',
-            firstName: 'unknown',
-            lastName: 'unknown',
-            street: 'unknown',
-            city: 'unknown',
-            state: 'unknown',
-            zip: 'unknown'
+            firstName: address.firstName,
+            lastName: address.lastName,
+            street: address.street,
+            city: address.city,
+            state: address.state,
+            zip: address.zip,
+            phone: address.phone,
+            fax: address.fax,
+            tollFree: address.tollFree
         };
     }
 
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">File: {this.state.file}</p>
-                <button id='btnGetFile' className='Btn' onClick={this.getFile}>Get File</button>
                 <br/>
                 <br/>
                 <div className='Card' align="center">
@@ -37,6 +38,9 @@ class App extends Component {
                     <p className="App-intro"><strong>City:</strong> {this.state.city}</p>
                     <p className="App-intro"><strong>State:</strong> {this.state.state}</p>
                     <p className="App-intro"><strong>Zip:</strong> {this.state.zip}</p>
+                    <p className="App-intro"><strong>Phone:</strong> {this.state.phone}</p>
+                    <p className="App-intro"><strong>Fax:</strong> {this.state.fax}</p>
+                    <p className="App-intro"><strong>Tollfree:</strong> {this.state.tollFree}</p>
                     <br/>
                 </div>
                 <br/>
@@ -45,19 +49,18 @@ class App extends Component {
         );
     }
 
-    getFile = () => {
-        console.log('getFile called.');
-        this.setState({file: 'url-file.js'});
-    };
-
     setAddress = () => {
+        const address = this.props.addressList[1];
         this.setState({
-            firstName: 'Rasmus',
-            lastName: 'Lindved',
-            street: 'Lake Hills Blvd.',
-            city: 'Bellevue',
-            state: 'Washington',
-            zip: '98008'
+            firstName: address.firstName,
+            lastName: address.lastName,
+            street: address.street,
+            city: address.city,
+            state: address.state,
+            zip: address.zip,
+            phone: address.phone,
+            fax: address.fax,
+            tollFree: address.tollFree
         })
     };
 }

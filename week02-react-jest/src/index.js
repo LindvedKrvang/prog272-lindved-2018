@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
+import Address from './components/Address';
+import addresses from './AddressList';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+    <div>
+        <App />
+        <Address addressList={addresses}/>
+    </div>,
+    document.getElementById('root'));
 registerServiceWorker();
