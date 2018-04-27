@@ -18,9 +18,8 @@ class App extends Component {
   }
 }
 
-App.protoTypes = {
-    appInit: PropTypes.shape({
-        testProp: PropTypes.number
-    })
+App.propTypes = {
+    testProp: PropTypes.number,
+    myProps: PropTypes.objectOf(PropTypes.number)
 };
 export default App;
