@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Address from './components/Address';
-import addresses from './AddressList';
+import Address from '../components/Address';
+import addresses from '../model/AddressList';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
