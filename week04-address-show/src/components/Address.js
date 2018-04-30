@@ -11,8 +11,6 @@ class App extends Component {
         this.state = {
             address: addresses[0]
         };
-
-        // console.log(this.test());
     }
 
     render() {
@@ -29,10 +27,6 @@ class App extends Component {
             address: addresses[1]
         })
     };
-
-    test = () => {
-        return true;
-    }
 }
 
 export default App;
