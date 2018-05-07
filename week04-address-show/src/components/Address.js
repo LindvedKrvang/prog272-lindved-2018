@@ -9,6 +9,7 @@ class App extends Component {
         super(props);
 
         this.state = {
+            index: 0,
             address: addresses[0]
         };
     }
@@ -23,8 +24,15 @@ class App extends Component {
     }
 
     setAddress = () => {
+        let index = this.state.index;
+        if(index >= addresses.length - 1)
+            index = 0;
+        else
+            index++;
+
         this.setState({
-            address: addresses[1]
+            index: index,
+            address: addresses[index]
         })
     };
 }
