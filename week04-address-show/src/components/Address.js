@@ -3,6 +3,7 @@ import '../css/AddressShow.css';
 import addresses from '../model/AddressList';
 import AddressShow from "./AddressShow";
 
+
 class App extends Component {
 
     constructor(props) {
@@ -16,10 +17,12 @@ class App extends Component {
 
     render() {
         return (
+
             <div className="App">
                 <AddressShow address={this.state.address}/>
                 <button id='btnSetAddress' className='Btn' onClick={this.setAddress}>Set Address</button>
             </div>
+
         );
     }
 
