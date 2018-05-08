@@ -11,21 +11,27 @@ class AddressShow extends Component {
                 <div className='Card' align="center">
                     <br/>
                     <h2>Address Details</h2>
-                    <p className="App-intro"><strong>First Name:</strong> {this.props.address.firstName}</p>
-                    <p className="App-intro"><strong>Last Name:</strong> {this.props.address.lastName}</p>
-                    <p className="App-intro"><strong>Street:</strong> {this.props.address.street}</p>
-                    <p className="App-intro"><strong>City:</strong> {this.props.address.city}</p>
-                    <p className="App-intro"><strong>State:</strong> {this.props.address.state}</p>
-                    <p className="App-intro"><strong>Zip:</strong> {this.props.address.zip}</p>
-                    <p className="App-intro"><strong>Phone:</strong> {this.props.address.phone}</p>
-                    <p className="App-intro"><strong>Fax:</strong> {this.props.address.fax}</p>
-                    <p className="App-intro"><strong>Toll Free:</strong> {this.props.address.tollFree}</p>
+                    {this.singleLine("First Name", this.props.address.firstName)}
+                    {this.singleLine("Last Name", this.props.address.lastName)}
+                    {this.singleLine("Street", this.props.address.street)}
+                    {this.singleLine("City", this.props.address.city)}
+                    {this.singleLine("State", this.props.address.state)}
+                    {this.singleLine("Zip", this.props.address.zip)}
+                    {this.singleLine("Phone", this.props.address.phone)}
+                    {this.singleLine("Fax", this.props.address.fax)}
+                    {this.singleLine("Toll Free", this.props.address.tollFree)}
                     <br/>
                 </div>
                 <br/>
 
             </div>
         );
+    }
+
+    singleLine(display, value) {
+        return (
+            <p className="App-intro"><strong>{display}:</strong> {value}</p>
+        )
     }
 }
 
