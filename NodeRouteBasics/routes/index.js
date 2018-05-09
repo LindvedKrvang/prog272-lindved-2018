@@ -1,7 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
+const utils = require("./utils.js");
 const feetInOneMile = 5280;
+
 
 /* GET home page. */
 router.get('/', function(req, res) { 'use strict';
@@ -32,7 +34,7 @@ router.get('/xFeetInXMiles/:miles', function (req, res) {'use strict';
 
 router.get('/circleCircumference/:radius', function (req, res) { 'use strict';
     const radius = req.params["radius"];
-    const circumference = 2 * radius * Math.PI;
+    const circumference = utils.calculateCircumference(radius);
     res.send({
         result: `The circumference of a circle with a radius of ${radius} is ${circumference}`
     })
