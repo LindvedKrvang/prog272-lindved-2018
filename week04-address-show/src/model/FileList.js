@@ -1,6 +1,6 @@
 const files = [
-    "unknown",
-    "hello.world.org"
+    'unknown',
+    'hello.world.org'
 ];
 
 export default files;

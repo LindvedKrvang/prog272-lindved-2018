@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/AddressShow.css';
 import addresses from '../model/AddressList';
-import AddressShow from "./AddressShow";
+import AddressShow from './AddressShow';
 
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
         this.setState({
             index: index,
             address: addresses[index]
-        })
+        });
     };
 }
 

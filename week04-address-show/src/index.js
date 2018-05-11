@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Address from './components/Address';
 import registerServiceWorker from './registerServiceWorker';
-import Header from "./components/Header";
+import Header from './components/Header';
 import {BrowserRouter, Route} from 'react-router-dom';
-import GetFile from "./components/GetFile";
+import GetFile from './components/GetFile';
 import * as routes from './routes/RouteNames';
 
 

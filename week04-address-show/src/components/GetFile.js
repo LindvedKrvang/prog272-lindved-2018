@@ -11,7 +11,7 @@ class GetFile extends React.Component {
             index: 0,
             file: files[0]
         };
-        console.log(this.state.file)
+        console.log(this.state.file);
     }
 
     getFile = () => {
@@ -24,7 +24,7 @@ class GetFile extends React.Component {
         this.setState({
             index: index,
             file: files[index]
-        })
+        });
     };
 
     render() {

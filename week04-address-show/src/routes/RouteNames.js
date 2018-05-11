@@ -1,2 +1,2 @@
-export const AddressRoute = "/";
-export const GetFileRoute = "/get-file";
+export const AddressRoute = '/';
+export const GetFileRoute = '/get-file';
