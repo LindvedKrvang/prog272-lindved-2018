@@ -1,26 +1,53 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../css/AddressShow.css';
 import '../css/Menu.css';
 import { Link } from 'react-router-dom';
 import * as routes from '../routes/RouteNames';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showSidebar: false
+        };
+    }
+
+    toggleSidebar = () => {
+        this.setState({
+            showSidebar: !this.state.showSidebar
+        });
+    };
+
     render() {
         return (
-            <div className="App">
-                <ul>
-                    <li>
-                        <Link to={routes.AddressRoute}>Addresses</Link>
-                    </li>
-                    <li>
-                        <Link to={routes.GetFileRoute}>Get File</Link>
-                    </li>
-                </ul>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
+            <div>
+                <AppBar
+                    title="Address Show"
+                    iconClassNameRight="muidocs-icon.navigation-expand-more"
+                    onLeftIconButtonClick={this.toggleSidebar}
+                />
+                <Drawer
+                    docked={false}
+                    width={200}
+                    open={this.state.showSidebar}
+                    onRequestChange={this.toggleSidebar}
+                >
+                    <AppBar title="Address Show" />
+                    <MenuItem
+                        primaryText="Addresses"
+                        containerElement={<Link to={routes.AddressRoute} />}
+                        onClick={this.toggleSidebar}
+                    />
+                    <MenuItem
+                        primaryText="Files"
+                        containerElement={<Link to={routes.GetFileRoute} />}
+                        onClick={this.toggleSidebar}
+                    />
+                </Drawer>
             </div>
         );
     }

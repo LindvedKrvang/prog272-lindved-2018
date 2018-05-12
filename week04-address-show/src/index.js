@@ -1,20 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import Address from './components/Address';
+import React from 'react';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import registerServiceWorker from './registerServiceWorker';
-import Header from './components/Header';
-import { BrowserRouter, Route } from 'react-router-dom';
-import GetFile from './components/GetFile';
-import * as routes from './routes/RouteNames';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import App from './components/App';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <div>
-            <Header />
-            <Route exact path={routes.AddressRoute} component={Address} />
-            <Route path={routes.GetFileRoute} component={GetFile} />
-        </div>
-    </BrowserRouter>,
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <App />
+    </MuiThemeProvider>,
     document.getElementById('root')
 );
 registerServiceWorker();

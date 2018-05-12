@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import addresses from '../model/AddressList';
 import AddressShow from './AddressShow';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 
 class App extends Component {
     constructor(props) {
@@ -17,13 +19,15 @@ class App extends Component {
         return (
             <div className="App">
                 <AddressShow address={this.state.address} />
-                <button
+                <RaisedButton
                     id="btnSetAddress"
+                    primary={true}
                     className="Btn"
+                    icon={<FontIcon className="material-icons">home</FontIcon>}
                     onClick={this.setAddress}
                 >
                     Set Address
-                </button>
+                </RaisedButton>
             </div>
         );
     }

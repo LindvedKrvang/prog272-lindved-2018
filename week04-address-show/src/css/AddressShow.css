@@ -30,11 +30,7 @@
 
 .Btn {
   width: 200px;
-  height: 25px;
-  border-color: black;
-  border-width: 2px;
-  background-color: aliceblue;
-  border-radius: 25px;
+  height: auto;
 }
 
 .Btn:hover {
