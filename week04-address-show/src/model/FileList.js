@@ -1,6 +1,3 @@
-const files = [
-    'unknown',
-    'hello.world.org'
-];
+const files = ['unknown', 'hello.world.org'];
 
 export default files;

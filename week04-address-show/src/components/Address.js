@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import addresses from '../model/AddressList';
 import AddressShow from './AddressShow';
 
-
 class App extends Component {
-
     constructor(props) {
         super(props);
 
@@ -17,21 +15,23 @@ class App extends Component {
 
     render() {
         return (
-
             <div className="App">
-                <AddressShow address={this.state.address}/>
-                <button id='btnSetAddress' className='Btn' onClick={this.setAddress}>Set Address</button>
+                <AddressShow address={this.state.address} />
+                <button
+                    id="btnSetAddress"
+                    className="Btn"
+                    onClick={this.setAddress}
+                >
+                    Set Address
+                </button>
             </div>
-
         );
     }
 
     setAddress = () => {
         let index = this.state.index;
-        if(index >= addresses.length - 1)
-            index = 0;
-        else
-            index++;
+        if (index >= addresses.length - 1) index = 0;
+        else index++;
 
         this.setState({
             index: index,

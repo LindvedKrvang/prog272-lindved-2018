@@ -3,7 +3,6 @@ import '../css/AddressShow.css';
 import files from '../model/FileList';
 
 class GetFile extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -16,10 +15,8 @@ class GetFile extends React.Component {
 
     getFile = () => {
         let index = this.state.index;
-        if(index >= files.length - 1)
-            index = 0;
-        else
-            index++;
+        if (index >= files.length - 1) index = 0;
+        else index++;
 
         this.setState({
             index: index,
@@ -30,17 +27,21 @@ class GetFile extends React.Component {
     render() {
         return (
             <div className="App">
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <div className="Card">
-                    <br/>
+                    <br />
                     <h2>File Details</h2>
-                    <p><strong>File:</strong> {this.state.file}</p>
-                    <br/>
+                    <p>
+                        <strong>File:</strong> {this.state.file}
+                    </p>
+                    <br />
                 </div>
-                <br/>
-                <br/>
-                <button className="Btn" onClick={this.getFile}>Get File</button>
+                <br />
+                <br />
+                <button className="Btn" onClick={this.getFile}>
+                    Get File
+                </button>
             </div>
         );
     }

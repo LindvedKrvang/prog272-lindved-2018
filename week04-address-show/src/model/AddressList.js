@@ -10,7 +10,8 @@ const addresses = [
         phone: unknown,
         fax: unknown,
         tollFree: unknown
-    },{
+    },
+    {
         firstName: 'Patty',
         lastName: 'Murray',
         street: '154 Russel Senate Office Building',
@@ -21,7 +22,6 @@ const addresses = [
         fax: '(202) 224-0238',
         tollFree: '(866) 481-9186'
     }
-
 ];
 
 export default addresses;

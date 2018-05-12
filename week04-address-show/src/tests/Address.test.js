@@ -1,23 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Address from '../components/Address';
-import {configure, mount} from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-configure({adapter: new Adapter});
+configure({ adapter: new Adapter() });
 
-const component = <Address/>;
+const component = <Address />;
 
-describe('Testing Address component', function () {
+describe('Testing Address component', function() {
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    const checkDefault = (name) => {
+    const checkDefault = name => {
         const wrapper = mount(component);
-        const expectedResult = <p className="App-intro"><strong>{name}</strong> unknown</p>;
+        const expectedResult = (
+            <p className="App-intro">
+                <strong>{name}</strong> unknown
+            </p>
+        );
         const answer = wrapper.contains(expectedResult);
         logError(answer, 'Default Test: ' + name);
         expect(answer).toBe(true);
@@ -25,7 +29,11 @@ describe('Testing Address component', function () {
 
     const checkButtonClick = (name, result) => {
         const wrapper = mount(component);
-        const expectedResult = <p className="App-intro"><strong>{name}</strong> {result}</p>;
+        const expectedResult = (
+            <p className="App-intro">
+                <strong>{name}</strong> {result}
+            </p>
+        );
         wrapper.find('#btnSetAddress').simulate('click');
         const answer = wrapper.contains(expectedResult);
         logError(answer, 'ButtonClickTest ' + name);
@@ -33,7 +41,7 @@ describe('Testing Address component', function () {
     };
 
     const logError = (success, testName) => {
-        if(!success){
+        if (!success) {
             console.log(testName + ' failed!');
         }
     };
@@ -110,4 +118,3 @@ describe('Testing Address component', function () {
         checkButtonClick('Toll Free:', '(866) 481-9186');
     });
 });
-

@@ -1,18 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import PropTypes from 'prop-types';
 
 class AddressShow extends Component {
-
     render() {
         return (
             <div className="App">
-                <br/>
-                <br/>
-                <div className='Card' align="center">
-                    <br/>
+                <br />
+                <br />
+                <div className="Card" align="center">
+                    <br />
                     <h2>Address Details</h2>
-                    {this.singleLine('First Name', this.props.address.firstName)}
+                    {this.singleLine(
+                        'First Name',
+                        this.props.address.firstName
+                    )}
                     {this.singleLine('Last Name', this.props.address.lastName)}
                     {this.singleLine('Street', this.props.address.street)}
                     {this.singleLine('City', this.props.address.city)}
@@ -21,17 +23,18 @@ class AddressShow extends Component {
                     {this.singleLine('Phone', this.props.address.phone)}
                     {this.singleLine('Fax', this.props.address.fax)}
                     {this.singleLine('Toll Free', this.props.address.tollFree)}
-                    <br/>
+                    <br />
                 </div>
-                <br/>
-
+                <br />
             </div>
         );
     }
 
     singleLine(display, value) {
         return (
-            <p className="App-intro"><strong>{display}:</strong> {value}</p>
+            <p className="App-intro">
+                <strong>{display}:</strong> {value}
+            </p>
         );
     }
 }
