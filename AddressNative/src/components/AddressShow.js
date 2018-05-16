@@ -1,40 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Text, View } from "react-native";
 
 class AddressShow extends Component {
     render() {
         return (
-            <div className="App">
-                <br />
-                <br />
-                <div className="Card" align="center">
-                    <br />
-                    <h2>Address Details</h2>
-                    {this.singleLine(
-                        'First Name',
-                        this.props.address.firstName
-                    )}
-                    {this.singleLine('Last Name', this.props.address.lastName)}
-                    {this.singleLine('Street', this.props.address.street)}
-                    {this.singleLine('City', this.props.address.city)}
-                    {this.singleLine('State', this.props.address.state)}
-                    {this.singleLine('Zip', this.props.address.zip)}
-                    {this.singleLine('Phone', this.props.address.phone)}
-                    {this.singleLine('Fax', this.props.address.fax)}
-                    {this.singleLine('Toll Free', this.props.address.tollFree)}
-                    <br />
-                </div>
-                <br />
-            </div>
+            <View>
+                <Text style={{fontWeight: "bold", fontSize: 20}}>
+                    Address Details
+                </Text>
+                {this.singleLine('First Name', this.props.address.firstName)}
+                {this.singleLine('Last Name', this.props.address.lastName)}
+                {this.singleLine('Street', this.props.address.street)}
+                {this.singleLine('City', this.props.address.city)}
+                {this.singleLine('State', this.props.address.state)}
+                {this.singleLine('Zip', this.props.address.zip)}
+                {this.singleLine('Phone', this.props.address.phone)}
+                {this.singleLine('Fax', this.props.address.fax)}
+                {this.singleLine('Toll Free', this.props.address.tollFree)}
+            </View>
         );
     }
 
     singleLine(display, value) {
         return (
-            <p className="App-intro">
-                <strong>{display}:</strong> {value}
-            </p>
-        );
+            <Text>
+                <Text style={{fontWeight: "bold"}}>{display}: </Text>
+                {value}
+            </Text>
+        )
     }
 }
 

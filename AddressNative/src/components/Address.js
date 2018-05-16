@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import addresses from '../model/AddressList';
 import style from "../styles/style";
 import { View, Text } from "react-native";
+import AddressShow from "./AddressShow";
 
 class App extends Component {
     constructor(props) {
@@ -16,9 +17,7 @@ class App extends Component {
     render() {
         return (
             <View style={style.container}>
-                <Text style={style.welcome}>
-                    Hello There
-                </Text>
+                    <AddressShow address={this.state.address}/>
             </View>
         );
     }
