@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-// import '../css/AddressShow.css';
 import addresses from '../model/AddressList';
 import style from "../styles/style";
-import AddressShow from './AddressShow';
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
-import GetFile from "./GetFile";
-import {View} from "react-native";
+import { View, Text } from "react-native";
 
 class App extends Component {
     constructor(props) {
@@ -20,21 +15,11 @@ class App extends Component {
 
     render() {
         return (
-            <View style={style.addressContainer}>
-                <GetFile/>
+            <View style={style.container}>
+                <Text style={style.welcome}>
+                    Hello There
+                </Text>
             </View>
-            {/*<div className="App">*/}
-                {/*<AddressShow address={this.state.address} />*/}
-                {/*<RaisedButton*/}
-                    {/*id="btnSetAddress"*/}
-                    {/*primary={true}*/}
-                    {/*className="Btn"*/}
-                    {/*icon={<FontIcon className="material-icons">home</FontIcon>}*/}
-                    {/*onClick={this.setAddress}*/}
-                {/*>*/}
-                    {/*Set Address*/}
-                {/*</RaisedButton>*/}
-            {/*</div>*/}
         );
     }
 

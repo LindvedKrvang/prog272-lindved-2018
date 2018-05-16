@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/AddressShow.css';
 import PropTypes from 'prop-types';
 
 class AddressShow extends Component {

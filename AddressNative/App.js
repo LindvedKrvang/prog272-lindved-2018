@@ -1,13 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import GetFile from "./src/components/GetFile";
+import Address from "./src/components/Address";
+import Header from "./src/components/Header";
+import { NativeRouter, Route } from "react-router-native";
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <GetFile/>
-      </View>
+        <NativeRouter>
+            <View style={styles.container}>
+                <Header/>
+                <Route exact path="/" component={Address}/>
+                <Route path="/GetFile" component={GetFile}/>
+            </View>
+        </NativeRouter>
     );
   }
 }
