@@ -1,39 +1,39 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
         marginTop: 25,
         padding: 10,
-        backgroundColor: "#abc123"
+        backgroundColor: '#abc123'
     },
     addressContainer: {
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     header: {
         fontSize: 20
     },
     nav: {
-        flexDirection:"row",
-        justifyContent: "space-around"
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     navItem: {
         flex: 1,
-        alignItems: "center",
+        alignItems: 'center',
         padding: 10
     },
     subNavItems: {
         padding: 5
     },
     topic: {
-        textAlign: "center",
+        textAlign: 'center',
         fontSize: 15
     },
     card: {
         flex: 1,
-        width: "75%",
-        backgroundColor: "#abc123",
+        width: '75%',
+        backgroundColor: '#abc123',
         marginTop: 30,
         marginBottom: 40,
         paddingTop: 10,
@@ -42,7 +42,7 @@ export default StyleSheet.create({
         paddingRight: 10,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: "#000",
+        borderColor: '#000'
     },
     buttonView: {
         marginRight: 40,
@@ -52,10 +52,10 @@ export default StyleSheet.create({
         paddingBottom: 20,
         paddingLeft: 20,
         paddingRight: 20,
-        backgroundColor: "#68a0cf",
+        backgroundColor: '#68a0cf',
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: "#fff",
-        width: "75%"
-    },
+        borderColor: '#fff',
+        width: '75%'
+    }
 });
