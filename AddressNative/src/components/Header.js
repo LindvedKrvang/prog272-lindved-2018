@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-native';
 import { StyleSheet, View, Text } from 'react-native';
+import * as RouteNames from '../routes/RouteNames';
 
 class Header extends Component {
     constructor(props) {
@@ -20,11 +21,15 @@ class Header extends Component {
     render() {
         return (
             <View style={styles.nav}>
-                <Link to="/" underlayColor="#f0f4f7" style={styles.navItem}>
+                <Link
+                    to={RouteNames.AddressRoute}
+                    underlayColor="#f0f4f7"
+                    style={styles.navItem}
+                >
                     <Text style={{ fontWeight: 'bold' }}>Address</Text>
                 </Link>
                 <Link
-                    to="/GetFile"
+                    to={RouteNames.GetFileRoute}
                     underlayColor="#f0f4f7"
                     style={styles.navItem}
                 >

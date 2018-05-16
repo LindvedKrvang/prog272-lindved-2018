@@ -4,6 +4,7 @@ import GetFile from './src/components/GetFile';
 import Address from './src/components/Address';
 import Header from './src/components/Header';
 import { NativeRouter, Route } from 'react-router-native';
+import * as RouteNames from './src/routes/RouteNames';
 
 export default class App extends React.Component {
     render() {
@@ -12,8 +13,15 @@ export default class App extends React.Component {
                 <View style={styles.container}>
                     <Header />
                     <View style={styles.content}>
-                        <Route exact path="/" component={Address} />
-                        <Route path="/GetFile" component={GetFile} />
+                        <Route
+                            exact
+                            path={RouteNames.AddressRoute}
+                            component={Address}
+                        />
+                        <Route
+                            path={RouteNames.GetFileRoute}
+                            component={GetFile}
+                        />
                     </View>
                 </View>
             </NativeRouter>
