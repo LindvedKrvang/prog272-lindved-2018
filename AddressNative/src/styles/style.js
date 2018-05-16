@@ -30,6 +30,20 @@ export default StyleSheet.create({
         textAlign: "center",
         fontSize: 15
     },
+    card: {
+        flex: 1,
+        width: "75%",
+        backgroundColor: "#abc123",
+        marginTop: 30,
+        marginBottom: 40,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: "#000",
+    },
     buttonView: {
         marginRight: 40,
         marginLeft: 40,
@@ -43,5 +57,5 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: "#fff",
         width: "75%"
-    }
+    },
 });

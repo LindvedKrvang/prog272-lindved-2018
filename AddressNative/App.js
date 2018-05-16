@@ -11,8 +11,10 @@ export default class App extends React.Component {
         <NativeRouter>
             <View style={styles.container}>
                 <Header/>
-                <Route exact path="/" component={Address}/>
-                <Route path="/GetFile" component={GetFile}/>
+                <View style={styles.content}>
+                    <Route exact path="/" component={Address}/>
+                    <Route path="/GetFile" component={GetFile}/>
+                </View>
             </View>
         </NativeRouter>
     );
@@ -20,10 +22,14 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#abc123"
+    },
+    content: {
+        flex: 1,
+        backgroundColor: '#EEE',
+        alignItems: 'center',
+        // justifyContent: "space-evenly",
+    }
 });

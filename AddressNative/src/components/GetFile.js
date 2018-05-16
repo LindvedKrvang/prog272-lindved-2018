@@ -27,12 +27,18 @@ class GetFile extends React.Component {
 
     render() {
         return (
-            <View style={style.buttonView}>
-                <Text>File: {this.state.file}</Text>
+            <View style={style.card}>
+                <View style={{flex: 1}}>
+                    <Text style={{fontWeight: "bold", fontSize: 30, textAlign: "center"}}>
+                        File Details
+                    </Text>
+                    <Text >
+                        <Text style={{fontWeight: "bold"}}>File: </Text>
+                        {this.state.file}
+                    </Text>
+                </View>
                 <Button onPress={this.getFile}
-                        title="Get File"
-                        color="#841584"
-                        accessibilityLabel="Learn more about this purple button"/>
+                        title="Get File"/>
             </View>
 
         )
