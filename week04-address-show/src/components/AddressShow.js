@@ -11,10 +11,7 @@ class AddressShow extends Component {
                 <div className="Card" align="center">
                     <br />
                     <h2>Address Details</h2>
-                    {this.singleLine(
-                        'First Name',
-                        this.props.address.firstName
-                    )}
+                    {this.singleLine('First Name', this.props.address.firstName)}
                     {this.singleLine('Last Name', this.props.address.lastName)}
                     {this.singleLine('Street', this.props.address.street)}
                     {this.singleLine('City', this.props.address.city)}

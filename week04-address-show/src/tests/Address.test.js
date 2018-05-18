@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import Address from '../components/Address';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 configure({ adapter: new Adapter() });
 
-const component = <Address />;
+const component = <MuiThemeProvider><Address /></MuiThemeProvider>;
 
 describe('Testing Address component', function() {
     it('Renders without crashing', () => {
@@ -34,7 +35,7 @@ describe('Testing Address component', function() {
                 <strong>{name}</strong> {result}
             </p>
         );
-        wrapper.find('#btnSetAddress').simulate('click');
+        wrapper.find('#btnSetAddress').at(1).simulate('click');
         const answer = wrapper.contains(expectedResult);
         logError(answer, 'ButtonClickTest ' + name);
         expect(answer).toBe(true);
