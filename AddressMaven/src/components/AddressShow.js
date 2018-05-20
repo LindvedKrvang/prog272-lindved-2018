@@ -17,9 +17,7 @@ class AddressShow extends Component {
                 {this.singleLine('Fax', this.props.address.fax)}
                 {this.singleLine('Toll Free', this.props.address.tollFree)}
             </div>
-            : <div>
-                <h1>Loading...</h1>
-            </div>;
+            : <div><h1>Loading...</h1></div>;
         return (
             <div className="App">
                 <br />
