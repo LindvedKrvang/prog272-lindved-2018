@@ -1,0 +1,17 @@
+{
+  "name": "lindvedserver",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Your Name <you@example.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/LindvedKrvang/prog272-lindved-2018",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
