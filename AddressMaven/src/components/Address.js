@@ -7,14 +7,21 @@ import Server from '../dal/LindvedServer';
 
 const server = new Server();
 
+const style = {
+    marginLeft: 100,
+    marginRight: 100
+};
+
 class App extends Component {
     constructor(props) {
         super(props);
 
+        this.addresses = null;
+
         server.getAddresses(this.refresh);
+
         this.state = {
             index: 0,
-            addresses: null,
             address: null
         };
 
@@ -24,36 +31,54 @@ class App extends Component {
         return (
             <div className="App">
                 <AddressShow address={this.state.address} />
+                <div>
                 <RaisedButton
-                    id="btnSetAddress"
+                    id="btnLeft"
                     primary={true}
+                    style={style}
                     className="Btn"
-                    icon={<FontIcon className="material-icons">home</FontIcon>}
-                    onClick={this.setAddress}
-                >
-                    Set Address
-                </RaisedButton>
+                    icon={<FontIcon className="material-icons">arrow_back</FontIcon>}
+                    onClick={this.previousAddress}/>
+                <RaisedButton
+                    id="btnSetAddressRight"
+                    primary={true}
+                    style={style}
+                    className="Btn"
+                    icon={<FontIcon className="material-icons">arrow_forward</FontIcon>}
+                    onClick={this.nextAddress}/>
+                </div>
             </div>
         );
     }
 
-    setAddress = () => {
+    nextAddress = () => {
         let index = this.state.index;
-        if (index >= this.state.addresses.length - 1) index = 0;
-        else index++;
+
+        index = (index >= this.addresses.length - 1)
+                ? 0 : index + 1;
 
         this.setState({
             index: index,
-            address: this.state.addresses[index]
+            address: this.addresses[index]
+        });
+    };
+
+    previousAddress = () => {
+        let index = this.state.index;
+
+        index = (index <= 0)
+            ? this.addresses.length - 1 : index - 1;
+
+        this.setState({
+            index: index,
+            address: this.addresses[index]
         });
     };
 
     refresh = (addresses) => {
+        this.addresses = addresses;
         this.setState({
-            addresses: addresses
-        });
-        this.setState({
-            address: this.state.addresses[this.state.index]
+            address: this.addresses[this.state.index]
         });
     }
 }
