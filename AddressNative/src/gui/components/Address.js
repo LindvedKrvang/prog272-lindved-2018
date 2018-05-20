@@ -42,22 +42,30 @@ class App extends Component {
         });
     };
 
-    refresh = (addresses) => {
+    refresh = addresses => {
         this.addresses = addresses;
         this.setState({
             address: this.addresses[this.state.index]
-        })
+        });
     };
 
     render() {
         return (
             <View style={style.card}>
                 <AddressShow address={this.state.address} />
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <View style={{flex: 1, paddingRight: 5}}>
-                        <Button onPress={this.previousAddress} title="Previous" />
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between'
+                    }}
+                >
+                    <View style={{ flex: 1, paddingRight: 5 }}>
+                        <Button
+                            onPress={this.previousAddress}
+                            title="Previous"
+                        />
                     </View>
-                    <View style={{flex: 1, paddingLeft: 5}}>
+                    <View style={{ flex: 1, paddingLeft: 5 }}>
                         <Button onPress={this.nextAddress} title="Next" />
                     </View>
                 </View>
