@@ -9,5 +9,9 @@ module.exports = {
             index: currentIndex,
             address: addresses[currentIndex]
         }
+    },
+
+    getAllAddresses: function() {
+        return addresses;
     }
 };

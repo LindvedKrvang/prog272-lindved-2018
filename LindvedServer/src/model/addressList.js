@@ -43,5 +43,16 @@ module.exports = [
         phone: '(555) 261-2181,',
         fax: '(555) 975-3135',
         tollFree: '(555) 235-23623'
+    },
+    {
+        firstName: 'Jane',
+        lastName: 'Doe',
+        street: 'Redmond Street',
+        city: 'Seattle',
+        state: 'Washington',
+        zip: '80021',
+        phone: '(555) 848-6421,',
+        fax: '(555) 285-3245',
+        tollFree: '(555) 645-3584'
     }
 ];
