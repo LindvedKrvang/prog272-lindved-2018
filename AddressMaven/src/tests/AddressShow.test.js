@@ -17,16 +17,20 @@ describe('Testing AddressShow component', function() {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('Displays \'Loading...\' if address equals null', () => {
+    it('Displays Loading... if address equals null', () => {
         const wrapper = shallow(<AddressShow address={null} />);
-        const expectedResult = (<div><h1>Loading...</h1></div>);
+        const expectedResult = (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        );
         const answer = wrapper.contains(expectedResult);
-        logError(answer, "Displays 'Loading...' while null");
+        logError(answer, 'Displays Loading... while null');
         expect(answer).toBe(true);
     });
 
     const checkValue = (address, name, result) => {
-        const wrapper = shallow(<AddressShow address={address}/>);
+        const wrapper = shallow(<AddressShow address={address} />);
         const expectedResult = (
             <p className="App-intro">
                 <strong>{name}</strong> {result}

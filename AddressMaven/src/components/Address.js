@@ -24,7 +24,6 @@ class App extends Component {
             index: 0,
             address: null
         };
-
     }
 
     render() {
@@ -32,20 +31,30 @@ class App extends Component {
             <div className="App">
                 <AddressShow address={this.state.address} />
                 <div>
-                <RaisedButton
-                    id="btnLeft"
-                    primary={true}
-                    style={style}
-                    className="Btn"
-                    icon={<FontIcon className="material-icons">arrow_back</FontIcon>}
-                    onClick={this.previousAddress}/>
-                <RaisedButton
-                    id="btnSetAddressRight"
-                    primary={true}
-                    style={style}
-                    className="Btn"
-                    icon={<FontIcon className="material-icons">arrow_forward</FontIcon>}
-                    onClick={this.nextAddress}/>
+                    <RaisedButton
+                        id="btnLeft"
+                        primary={true}
+                        style={style}
+                        className="Btn"
+                        icon={
+                            <FontIcon className="material-icons">
+                                arrow_back
+                            </FontIcon>
+                        }
+                        onClick={this.previousAddress}
+                    />
+                    <RaisedButton
+                        id="btnSetAddressRight"
+                        primary={true}
+                        style={style}
+                        className="Btn"
+                        icon={
+                            <FontIcon className="material-icons">
+                                arrow_forward
+                            </FontIcon>
+                        }
+                        onClick={this.nextAddress}
+                    />
                 </div>
             </div>
         );
@@ -54,8 +63,7 @@ class App extends Component {
     nextAddress = () => {
         let index = this.state.index;
 
-        index = (index >= this.addresses.length - 1)
-                ? 0 : index + 1;
+        index = index >= this.addresses.length - 1 ? 0 : index + 1;
 
         this.setState({
             index: index,
@@ -66,8 +74,7 @@ class App extends Component {
     previousAddress = () => {
         let index = this.state.index;
 
-        index = (index <= 0)
-            ? this.addresses.length - 1 : index - 1;
+        index = index <= 0 ? this.addresses.length - 1 : index - 1;
 
         this.setState({
             index: index,
@@ -75,12 +82,12 @@ class App extends Component {
         });
     };
 
-    refresh = (addresses) => {
+    refresh = addresses => {
         this.addresses = addresses;
         this.setState({
             address: this.addresses[this.state.index]
         });
-    }
+    };
 }
 
 export default App;

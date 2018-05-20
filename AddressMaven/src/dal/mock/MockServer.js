@@ -1,5 +1,5 @@
 const unknown = 'unknown';
-export default class MockServer{
+export default class MockServer {
     getAddresses = () => {
         return [
             {
@@ -25,7 +25,7 @@ export default class MockServer{
                 tollFree: '(866) 481-9186'
             }
         ];
-    }
+    };
 }
 // const addresses = [
 //     {
@@ -51,4 +51,3 @@ export default class MockServer{
 //         tollFree: '(866) 481-9186'
 //     }
 // ];
-

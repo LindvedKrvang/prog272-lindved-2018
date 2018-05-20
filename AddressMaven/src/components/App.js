@@ -5,9 +5,6 @@ import * as routes from '../routes/RouteNames';
 import Header from './Header';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-
-
-
 class App extends Component {
     render() {
         return (
