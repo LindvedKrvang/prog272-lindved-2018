@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-native';
 import { StyleSheet, View, Text } from 'react-native';
-import * as RouteNames from '../routes/RouteNames';
+import * as RouteNames from '../../routes/RouteNames';
 
 class Header extends Component {
     constructor(props) {

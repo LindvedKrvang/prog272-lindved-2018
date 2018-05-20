@@ -15,9 +15,12 @@ class App extends Component {
     }
 
     render() {
+
+        const addressShow = (this.state.address != null) ? <AddressShow address={this.state.address} /> : <br/>;
+
         return (
             <View style={style.card}>
-                <AddressShow address={this.state.address} />
+                {addressShow}
                 <Button onPress={this.setAddress} title="Get Address" />
             </View>
         );

@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import GetFile from './src/components/GetFile';
-import Address from './src/components/Address';
-import Header from './src/components/Header';
+import GetFile from './src/gui/components/GetFile';
+import Address from './src/gui/components/Address';
+import Header from './src/gui/components/Header';
 import { NativeRouter, Route } from 'react-router-native';
 import * as RouteNames from './src/routes/RouteNames';
 
