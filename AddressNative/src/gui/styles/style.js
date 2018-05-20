@@ -57,5 +57,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
         width: '75%'
+    },
+    button: {
+        width: 300
     }
 });

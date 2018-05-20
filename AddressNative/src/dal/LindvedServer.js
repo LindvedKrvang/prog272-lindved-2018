@@ -1,13 +1,13 @@
-const url = "http//:ec2-52-14-172-18.us-east-2.compute.amazonaws.com:30026";
+const url = "http://ec2-52-14-172-18.us-east-2.compute.amazonaws.com:30026";
 const getAddressesQuery = "/get-address-list";
 
 export default class LindvedServer {
 
-    getAddresses = () => {
+    getAddresses = (updateCaller) => {
         fetch(url + getAddressesQuery)
             .then((response) => response.json())
             .then((response) => {
-                return response["addresses"];
+                updateCaller(response["addresses"]);
             }).catch((ex) => {
                 console.log(ex);
         });

@@ -4,16 +4,14 @@ import { StyleSheet, Text, View } from 'react-native';
 
 class AddressShow extends Component {
     render() {
-        return (
-            <View style={styles.container}>
-                <Text
-                    style={{
-                        fontWeight: 'bold',
-                        fontSize: 30,
-                        textAlign: 'center'
-                    }}
-                >
-                    Address Details
+        const address = (this.props.address != null) ?
+            <View>
+                <Text style={{
+                    fontWeight: 'bold',
+                    fontSize: 30,
+                    textAlign: 'center'
+                }}>
+                Address Details
                 </Text>
                 {this.singleLine('First Name', this.props.address.firstName)}
                 {this.singleLine('Last Name', this.props.address.lastName)}
@@ -24,6 +22,18 @@ class AddressShow extends Component {
                 {this.singleLine('Phone', this.props.address.phone)}
                 {this.singleLine('Fax', this.props.address.fax)}
                 {this.singleLine('Toll Free', this.props.address.tollFree)}
+            </View>
+            : <View>
+                <Text style={{
+                    fontWeight: 'bold',
+                    fontSize: 30,
+                    textAlign: 'center'
+                }}>Loading...</Text>
+            </View>;
+
+
+        return (<View style={styles.container}>
+            {address}
             </View>
         );
     }
