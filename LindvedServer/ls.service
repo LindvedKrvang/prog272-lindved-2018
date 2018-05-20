@@ -1,0 +1,14 @@
+[Service]
+ExecStart=/usr/bin/node /home/ubuntu/bin/ls/bin/www
+WorkingDirectory=/home/ubuntu/bin/ls
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ls
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+Environment=PORT=30026
+
+[Install]
+WantedBy=multi-user.target
