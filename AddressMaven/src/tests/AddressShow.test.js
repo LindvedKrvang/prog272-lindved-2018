@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import MockServer from '../dal/mock/MockServer';
 
 const server = new MockServer();
-const addresses = server.getAddresses();
+const addresses = server.addresses;
 
 configure({ adapter: new Adapter() });
 

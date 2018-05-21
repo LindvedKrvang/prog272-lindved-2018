@@ -3,9 +3,6 @@ import '../css/AddressShow.css';
 import AddressShow from './AddressShow';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-import Server from '../dal/LindvedServer';
-
-const server = new Server();
 
 const style = {
     marginLeft: 100,
@@ -18,46 +15,12 @@ class App extends Component {
 
         this.addresses = null;
 
-        server.getAddresses(this.refresh);
-
         this.state = {
             index: 0,
             address: null
         };
-    }
 
-    render() {
-        return (
-            <div className="App">
-                <AddressShow address={this.state.address} />
-                <div>
-                    <RaisedButton
-                        id="btnLeft"
-                        primary={true}
-                        style={style}
-                        className="Btn"
-                        icon={
-                            <FontIcon className="material-icons">
-                                arrow_back
-                            </FontIcon>
-                        }
-                        onClick={this.previousAddress}
-                    />
-                    <RaisedButton
-                        id="btnSetAddressRight"
-                        primary={true}
-                        style={style}
-                        className="Btn"
-                        icon={
-                            <FontIcon className="material-icons">
-                                arrow_forward
-                            </FontIcon>
-                        }
-                        onClick={this.nextAddress}
-                    />
-                </div>
-            </div>
-        );
+        this.props.server.getAddresses(this.refresh);
     }
 
     nextAddress = () => {
@@ -88,6 +51,40 @@ class App extends Component {
             address: this.addresses[this.state.index]
         });
     };
+
+    render() {
+        return (
+            <div className="App">
+                <AddressShow address={this.state.address} />
+                <div>
+                    <RaisedButton
+                        id="btnPrev"
+                        primary={true}
+                        style={style}
+                        className="Btn"
+                        icon={
+                            <FontIcon className="material-icons">
+                                arrow_back
+                            </FontIcon>
+                        }
+                        onClick={this.previousAddress}
+                    />
+                    <RaisedButton
+                        id="btnNext"
+                        primary={true}
+                        style={style}
+                        className="Btn"
+                        icon={
+                            <FontIcon className="material-icons">
+                                arrow_forward
+                            </FontIcon>
+                        }
+                        onClick={this.nextAddress}
+                    />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
