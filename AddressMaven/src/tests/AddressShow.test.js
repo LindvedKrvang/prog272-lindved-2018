@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import AddressShow from '../components/AddressShow';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import MockServer from '../dal/mock/MockServer';
+import MockServer from './mock/MockServer';
 
 const server = new MockServer();
 const addresses = server.addresses;

@@ -26,7 +26,7 @@ class Header extends Component {
         return (
             <div>
                 <AppBar
-                    title="Address Show"
+                    title="Address Maven"
                     iconClassNameRight="muidocs-icon.navigation-expand-more"
                     onLeftIconButtonClick={this.toggleSidebar}
                 />
