@@ -28,7 +28,8 @@ function getZip(value, char) {
     // YOU WRITE IT
     // ITS THE SAME SINGLE CALL AS GET ADDRESS, BUT INDEXES ARE DIFFERENT
     // UNCOMMENT NEXT LINE AND MODIFY IT
-    // return value.substring(WHAT GOES HERE?, WHAT GOES HERE?);
+
+    return value.substring(value.lastIndexOf(char), value.length);
 }
 
 function getCity(value, char, len) {
