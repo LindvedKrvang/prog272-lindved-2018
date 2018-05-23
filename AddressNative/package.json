@@ -7,6 +7,7 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.8.2",
     "jest-expo": "~27.0.0",
+    "react-native-mock": "^0.3.1",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   },
@@ -19,11 +20,24 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "!/node_modules/react-runtime"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
+    "dev": "^0.1.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "expo": "^27.0.1",
+    "jest-serializer-enzyme": "^1.0.0",
     "react": "16.3.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.3.2",
     "react-native": "~0.55.2",
     "react-router-native": "^4.2.0"
   }

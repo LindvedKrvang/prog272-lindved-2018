@@ -23,6 +23,11 @@ describe('Testing Address component', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
+    it('initialize index to 0', () => {
+        const wrapper = shallow(component).dive();
+        expect(wrapper.state().index).toBe(0);
+    });
+
     it('increases Index when Next is pressed', () => {
         const wrapper = shallow(component).dive();
         const indexBefore = wrapper.state().index;

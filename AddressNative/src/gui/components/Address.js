@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import style from '../styles/style';
 import { View, Button } from 'react-native';
 import AddressShow from './AddressShow';
-import Server from '../../dal/LindvedServer';
-
-const server = new Server();
 
 class App extends Component {
     constructor(props) {
@@ -12,12 +9,12 @@ class App extends Component {
 
         this.addresses = null;
 
-        server.getAddresses(this.refresh);
-
         this.state = {
             index: 0,
             address: null
         };
+
+        this.props.server.getAddresses(this.refresh);
     }
 
     nextAddress = () => {
@@ -61,12 +58,13 @@ class App extends Component {
                 >
                     <View style={{ flex: 1, paddingRight: 5 }}>
                         <Button
+                            id="btnPrev"
                             onPress={this.previousAddress}
                             title="Previous"
                         />
                     </View>
                     <View style={{ flex: 1, paddingLeft: 5 }}>
-                        <Button onPress={this.nextAddress} title="Next" />
+                        <Button id="btnNext" onPress={this.nextAddress} title="Next" />
                     </View>
                 </View>
             </View>

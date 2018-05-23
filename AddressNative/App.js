@@ -5,8 +5,15 @@ import Address from './src/gui/components/Address';
 import Header from './src/gui/components/Header';
 import { NativeRouter, Route } from 'react-router-native';
 import * as RouteNames from './src/routes/RouteNames';
+import Server from './src/dal/LindvedServer';
 
 export default class App extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.server = new Server();
+    }
+
     render() {
         return (
             <NativeRouter>
@@ -16,7 +23,7 @@ export default class App extends React.Component {
                         <Route
                             exact
                             path={RouteNames.AddressRoute}
-                            component={Address}
+                            render={(props) => <Address {...props} server={this.server}/>}
                         />
                         <Route
                             path={RouteNames.GetFileRoute}
