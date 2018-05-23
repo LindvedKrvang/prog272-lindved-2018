@@ -40,6 +40,7 @@ class GetFile extends React.Component {
                 <br />
                 <br />
                 <RaisedButton
+                    id="btnGetFile"
                     primary={true}
                     className="Btn"
                     onClick={this.getFile}
