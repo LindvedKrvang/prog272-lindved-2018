@@ -12,7 +12,7 @@ const server = new MockServer();
 
 const component = (
     <MuiThemeProvider>
-        <Address server={server}/>
+        <Address server={server} />
     </MuiThemeProvider>
 );
 
@@ -31,7 +31,7 @@ describe('Testing Address component', () => {
     it('increases Index when Next is pressed', () => {
         const wrapper = shallow(component).dive();
         const indexBefore = wrapper.state().index;
-        wrapper.find("#btnNext").simulate("click");
+        wrapper.find('#btnNext').simulate('click');
         const indexAfter = wrapper.state().index;
 
         expect(indexAfter).toBe(indexBefore + 1);
@@ -39,7 +39,7 @@ describe('Testing Address component', () => {
 
     it('decreases Index when Prev is pressed', () => {
         const wrapper = shallow(component).dive();
-        wrapper.find("#btnPrev").simulate("click");
+        wrapper.find('#btnPrev').simulate('click');
         const indexAfter = wrapper.state().index;
 
         expect(indexAfter).toBe(server.addresses.length - 1);
