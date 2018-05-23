@@ -1,6 +1,6 @@
 
 const AddressManager = require("../src/managers/addressManager");
-
+const fs = require('fs');
 
 var express = require('express');
 var router = express.Router();
@@ -21,11 +21,29 @@ router.get('/nextAddress/:currentIndex', function (req, res) {
 });
 
 router.get('/get-address-list', function (req, res) {
-    const addresses = AddressManager.getAllAddresses();
-    res.send({
-        addresses: addresses
-    });
+    readFile(__dirname + '/address-list.json')
+        .then((json) => {
+            res.send(JSON.parse(json.result));
+        });
+    // const addresses = AddressManager.getAllAddresses();
+    // res.send({
+    //     addresses: addresses
+    // });
 });
+
+function readFile(fileName) {
+    'use strict';
+    return new Promise(function(resolve, reject){
+        fs.readFile(fileName, 'utf8', function (err, fileContents) {
+            if(err){
+                reject(err);
+            }
+            resolve({
+                'result': fileContents
+            });
+        });
+    });
+}
 
 router.get('/test', function (req, res) {
    res.json({
