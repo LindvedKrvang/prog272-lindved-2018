@@ -26,7 +26,7 @@ export default class MockServer {
             tollFree: '(866) 481-9186'
         }
     ];
-    getAddresses = (updateCaller) => {
+    getAddresses = updateCaller => {
         updateCaller(this.addresses);
     };
 }

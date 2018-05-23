@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from '../styles/style';
 import { View, Button } from 'react-native';
 import AddressShow from './AddressShow';
+import PropTypes from 'prop-types';
 
 class App extends Component {
     constructor(props) {
@@ -64,12 +65,20 @@ class App extends Component {
                         />
                     </View>
                     <View style={{ flex: 1, paddingLeft: 5 }}>
-                        <Button id="btnNext" onPress={this.nextAddress} title="Next" />
+                        <Button
+                            id="btnNext"
+                            onPress={this.nextAddress}
+                            title="Next"
+                        />
                     </View>
                 </View>
             </View>
         );
     }
 }
+
+App.propTypes = {
+    server: PropTypes.object
+};
 
 export default App;

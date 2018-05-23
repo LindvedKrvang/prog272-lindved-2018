@@ -66,4 +66,8 @@ const styles = StyleSheet.create({
     }
 });
 
+AddressShow.propTypes = {
+    address: PropTypes.object
+};
+
 export default AddressShow;

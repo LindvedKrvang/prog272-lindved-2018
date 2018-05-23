@@ -8,8 +8,7 @@ import * as RouteNames from './src/routes/RouteNames';
 import Server from './src/dal/LindvedServer';
 
 export default class App extends React.Component {
-
-    constructor(props){
+    constructor(props) {
         super(props);
         this.server = new Server();
     }
@@ -23,7 +22,9 @@ export default class App extends React.Component {
                         <Route
                             exact
                             path={RouteNames.AddressRoute}
-                            render={(props) => <Address {...props} server={this.server}/>}
+                            render={props => (
+                                <Address {...props} server={this.server} />
+                            )}
                         />
                         <Route
                             path={RouteNames.GetFileRoute}

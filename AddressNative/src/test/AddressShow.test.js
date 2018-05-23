@@ -6,16 +6,15 @@ import renderer from 'react-test-renderer';
 import MockServer from './mock/MockServer';
 import { Text, View } from 'react-native';
 
-
-configure({ adapter: new Adapter()});
+configure({ adapter: new Adapter() });
 
 const server = new MockServer();
 const addresses = server.addresses;
 
-const component = <AddressShow/>;
-
 it('Renders without crashing', () => {
-    const rendered = renderer.create(<AddressShow address={addresses[0]} />).toJSON();
+    const rendered = renderer
+        .create(<AddressShow address={addresses[0]} />)
+        .toJSON();
     expect(rendered).toBeTruthy();
 });
 
@@ -46,9 +45,9 @@ const checkValue = (address, name, result) => {
             {result}
         </Text>
     );
+    wrapper.contains(expectedResult);
     expect(wrapper).toMatchSnapshot();
 };
-
 
 it('Renders state of FirstName paragraph', () => {
     checkValue(addresses[1], 'First Name:', addresses[1].firstName);
