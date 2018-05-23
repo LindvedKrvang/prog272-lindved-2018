@@ -6,7 +6,7 @@ export default class LindvedServer {
         fetch(url + getAddressesQuery)
             .then(response => response.json())
             .then(response => {
-                updateCaller(response['addresses']);
+                updateCaller(response);
             })
             .catch(ex => {
                 console.log(ex);
