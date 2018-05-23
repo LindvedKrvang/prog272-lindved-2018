@@ -10,7 +10,7 @@ const addresses = server.addresses;
 
 configure({ adapter: new Adapter() });
 
-describe('Testing AddressShow component', function() {
+describe('Testing AddressShow component', () => {
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<AddressShow address={addresses[0]} />, div);

@@ -16,14 +16,14 @@ const component = (
     </MuiThemeProvider>
 );
 
-describe('Testing Address component', function() {
+describe('Testing Address component', () => {
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('increases Index when Next is pressed', function () {
+    it('increases Index when Next is pressed', () => {
         const wrapper = shallow(component).dive();
         const indexBefore = wrapper.state().index;
         wrapper.find("#btnNext").simulate("click");
@@ -32,7 +32,7 @@ describe('Testing Address component', function() {
         expect(indexAfter).toBe(indexBefore + 1);
     });
 
-    it('decreases Index when Prev is pressed', function () {
+    it('decreases Index when Prev is pressed', () => {
         const wrapper = shallow(component).dive();
         wrapper.find("#btnPrev").simulate("click");
         const indexAfter = wrapper.state().index;
