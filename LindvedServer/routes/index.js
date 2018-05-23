@@ -25,10 +25,6 @@ router.get('/get-address-list', function (req, res) {
         .then((json) => {
             res.send(JSON.parse(json.result));
         });
-    // const addresses = AddressManager.getAllAddresses();
-    // res.send({
-    //     addresses: addresses
-    // });
 });
 
 function readFile(fileName) {
