@@ -3,6 +3,7 @@ import '../css/AddressShow.css';
 import AddressShow from './AddressShow';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
+import PropTypes from 'prop-types';
 
 const style = {
     marginLeft: 100,
@@ -19,7 +20,9 @@ class App extends Component {
             index: 0,
             address: null
         };
+    }
 
+    componentDidMount() {
         this.props.server.getAddresses(this.refresh);
     }
 
@@ -86,5 +89,8 @@ class App extends Component {
         );
     }
 }
+App.propTypes = {
+    server: PropTypes.object
+};
 
 export default App;

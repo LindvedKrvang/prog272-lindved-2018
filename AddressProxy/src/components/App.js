@@ -7,8 +7,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Server from '../dal/LindvedServer';
 
 class App extends Component {
-
-    constructor(props){
+    constructor(props) {
         super(props);
         this.server = new Server();
     }
@@ -21,7 +20,10 @@ class App extends Component {
                     <Route
                         exact
                         path={routes.AddressRoute}
-                        render={(props) => <Address {...props} server={this.server}/>}/>
+                        render={props => (
+                            <Address {...props} server={this.server} />
+                        )}
+                    />
                     <Route path={routes.GetFileRoute} component={GetFile} />
                 </div>
             </BrowserRouter>
