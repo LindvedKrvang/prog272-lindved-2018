@@ -13,15 +13,21 @@ const style = {
 class App extends Component {
     constructor(props) {
         super(props);
-
+        this.cancelled = false;
         this.addresses = null;
 
         this.state = {
             index: 0,
             address: null
         };
+    }
 
+    componentDidMount() {
         this.props.server.getAddresses(this.refresh);
+    }
+
+    componentWillUnmount() {
+        this.cancelled = true;
     }
 
     nextAddress = () => {
@@ -47,6 +53,7 @@ class App extends Component {
     };
 
     refresh = addresses => {
+        if(this.cancelled) return;
         this.addresses = addresses;
         this.setState({
             address: this.addresses[this.state.index]

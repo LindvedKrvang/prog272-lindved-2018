@@ -26,7 +26,22 @@ export default class MockServer {
             tollFree: '(866) 481-9186'
         }
     ];
+
     getAddresses = updateCaller => {
         updateCaller(this.addresses);
     };
+
+    mockFetch() {
+        global.fetch = jest.fn().mockImplementation(() => {
+            const promise = new Promise(resolve => {
+                resolve({
+                    ok: true,
+                    json: function() {
+                        return this.addresses;
+                    }
+                })
+            });
+            return promise;
+        })
+    }
 }
