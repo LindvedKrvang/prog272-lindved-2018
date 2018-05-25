@@ -53,7 +53,7 @@ class App extends Component {
     };
 
     refresh = addresses => {
-        if(this.cancelled) return;
+        if (this.cancelled) return;
         this.addresses = addresses;
         this.setState({
             address: this.addresses[this.state.index]

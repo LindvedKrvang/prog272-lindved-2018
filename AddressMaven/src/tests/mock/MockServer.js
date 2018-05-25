@@ -39,9 +39,9 @@ export default class MockServer {
                     json: function() {
                         return this.addresses;
                     }
-                })
+                });
             });
             return promise;
-        })
+        });
     }
 }

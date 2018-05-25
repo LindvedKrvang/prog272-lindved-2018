@@ -18,7 +18,6 @@ const component = (
 );
 
 describe('Testing App component', () => {
-
     beforeEach(() => {
         return server.mockFetch();
     });
