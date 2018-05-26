@@ -9,7 +9,8 @@
     "jest-expo": "~27.0.0",
     "react-native-mock": "^0.3.1",
     "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.3.1",
+    "prop-types": "latest"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -39,6 +40,7 @@
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.3.2",
     "react-native": "~0.55.2",
-    "react-router-native": "^4.2.0"
+    "react-router-native": "^4.2.0",
+    "prop-types": "latest"
   }
 }
