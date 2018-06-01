@@ -10,9 +10,7 @@ configure({ adapter: new Adapter() });
 
 const server = new MockServer();
 
-const component = (
-        <App />
-);
+const component = <App />;
 
 describe('Testing App component', () => {
     beforeEach(() => {

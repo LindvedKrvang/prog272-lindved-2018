@@ -3,9 +3,9 @@ import '../css/AddressShow.css';
 import AddressShow from './AddressShow';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Button from "@material-ui/core/Button";
-import LeftArrowIcon from "@material-ui/icons/ArrowBack";
-import RightArrowIcon from "@material-ui/icons/ArrowForward";
+import Button from '@material-ui/core/Button';
+import LeftArrowIcon from '@material-ui/icons/ArrowBack';
+import RightArrowIcon from '@material-ui/icons/ArrowForward';
 
 const styles = theme => ({
     button: {
@@ -75,16 +75,18 @@ class App extends Component {
                         className={classes.button}
                         variant="raised"
                         color="primary"
-                        onClick={this.previousAddress}>
-                        <LeftArrowIcon/>
+                        onClick={this.previousAddress}
+                    >
+                        <LeftArrowIcon />
                     </Button>
                     <Button
                         id="btnNext"
                         className={classes.button}
                         variant="raised"
                         color="primary"
-                        onClick={this.nextAddress}>
-                        <RightArrowIcon/>
+                        onClick={this.nextAddress}
+                    >
+                        <RightArrowIcon />
                     </Button>
                 </div>
             </div>
@@ -93,7 +95,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-    server: PropTypes.object
+    server: PropTypes.object,
+    classes: PropTypes.object
 };
 
 export default withStyles(styles)(App);

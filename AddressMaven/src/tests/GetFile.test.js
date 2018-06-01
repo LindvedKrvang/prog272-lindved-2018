@@ -6,9 +6,7 @@ import ReactDOM from 'react-dom';
 
 configure({ adapter: new Adapter() });
 
-const component = (
-        <GetFile />
-);
+const component = <GetFile />;
 
 describe('Testing GetFile component', () => {
     it('Renders without crashing', () => {

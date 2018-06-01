@@ -1,8 +1,9 @@
 import React from 'react';
 import '../css/AddressShow.css';
 import files from '../model/FileList';
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
     button: {
@@ -48,12 +49,22 @@ class GetFile extends React.Component {
                 </div>
                 <br />
                 <br />
-                <Button variant="raised" id="btnGetFile" color="primary" className={classes.button} onClick={this.getFile}>
+                <Button
+                    variant="raised"
+                    id="btnGetFile"
+                    color="primary"
+                    className={classes.button}
+                    onClick={this.getFile}
+                >
                     Get File
                 </Button>
             </div>
         );
     }
 }
+
+GetFile.propTypes = {
+    classes: PropTypes.object
+};
 
 export default withStyles(styles)(GetFile);

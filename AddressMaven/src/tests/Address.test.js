@@ -9,9 +9,7 @@ configure({ adapter: new Adapter() });
 
 const server = new MockServer();
 
-const component = (
-        <Address server={server} />
-);
+const component = <Address server={server} />;
 
 describe('Testing Address component', () => {
     it('Renders without crashing', () => {
