@@ -3,7 +3,6 @@ import App from '../components/App';
 import Header from '../components/Header';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactDOM from 'react-dom';
 import MockServer from '../tests/mock/MockServer';
 
@@ -12,9 +11,7 @@ configure({ adapter: new Adapter() });
 const server = new MockServer();
 
 const component = (
-    <MuiThemeProvider>
         <App />
-    </MuiThemeProvider>
 );
 
 describe('Testing App component', () => {

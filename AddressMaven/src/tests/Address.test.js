@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Address from '../components/Address';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MockServer from './mock/MockServer';
 
 configure({ adapter: new Adapter() });
@@ -11,9 +10,7 @@ configure({ adapter: new Adapter() });
 const server = new MockServer();
 
 const component = (
-    <MuiThemeProvider>
         <Address server={server} />
-    </MuiThemeProvider>
 );
 
 describe('Testing Address component', () => {

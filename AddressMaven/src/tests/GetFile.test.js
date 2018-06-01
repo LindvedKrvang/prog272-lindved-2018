@@ -2,15 +2,12 @@ import React from 'react';
 import GetFile from '../components/GetFile';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactDOM from 'react-dom';
 
 configure({ adapter: new Adapter() });
 
 const component = (
-    <MuiThemeProvider>
         <GetFile />
-    </MuiThemeProvider>
 );
 
 describe('Testing GetFile component', () => {
