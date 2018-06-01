@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/AddressShow.css';
 import files from '../model/FileList';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from "@material-ui/core/es/Button/Button";
+// import RaisedButton from 'material-ui/RaisedButton';
 
 class GetFile extends React.Component {
     constructor(props) {
@@ -39,14 +40,17 @@ class GetFile extends React.Component {
                 </div>
                 <br />
                 <br />
-                <RaisedButton
-                    id="btnGetFile"
-                    primary={true}
-                    className="Btn"
-                    onClick={this.getFile}
-                >
-                    Get File
-                </RaisedButton>
+                <Button variant="raised" id="btnGetFile" className="Btn" onClick={this.getFile}>
+                    Default
+                </Button>
+                {/*<RaisedButton*/}
+                    {/*id="btnGetFile"*/}
+                    {/*primary={true}*/}
+                    {/*className="Btn"*/}
+                    {/*onClick={this.getFile}*/}
+                {/*>*/}
+                    {/*Get File*/}
+                {/*</RaisedButton>*/}
             </div>
         );
     }

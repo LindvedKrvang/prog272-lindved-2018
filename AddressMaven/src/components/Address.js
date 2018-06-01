@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import AddressShow from './AddressShow';
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import FontIcon from 'material-ui/FontIcon';
 import PropTypes from 'prop-types';
+import Button from "@material-ui/core/es/Button/Button";
 
 const style = {
     marginLeft: 100,
@@ -65,30 +66,44 @@ class App extends Component {
             <div className="App">
                 <AddressShow address={this.state.address} />
                 <div>
-                    <RaisedButton
+                    <Button
                         id="btnPrev"
-                        primary={true}
-                        style={style}
                         className="Btn"
-                        icon={
-                            <FontIcon className="material-icons">
-                                arrow_back
-                            </FontIcon>
-                        }
-                        onClick={this.previousAddress}
-                    />
-                    <RaisedButton
+                        variant="raised"
+                        onClick={this.previousAddress}>
+                        Previous
+                    </Button>
+                    <Button
                         id="btnNext"
-                        primary={true}
-                        style={style}
                         className="Btn"
-                        icon={
-                            <FontIcon className="material-icons">
-                                arrow_forward
-                            </FontIcon>
-                        }
-                        onClick={this.nextAddress}
-                    />
+                        variant="raised"
+                        onClick={this.nextAddress}>
+                        Next
+                    </Button>
+                    {/*<RaisedButton*/}
+                        {/*id="btnPrev"*/}
+                        {/*primary={true}*/}
+                        {/*style={style}*/}
+                        {/*className="Btn"*/}
+                        {/*icon={*/}
+                            {/*<FontIcon className="material-icons">*/}
+                                {/*arrow_back*/}
+                            {/*</FontIcon>*/}
+                        {/*}*/}
+                        {/*onClick={this.previousAddress}*/}
+                    {/*/>*/}
+                    {/*<RaisedButton*/}
+                        {/*id="btnNext"*/}
+                        {/*primary={true}*/}
+                        {/*style={style}*/}
+                        {/*className="Btn"*/}
+                        {/*icon={*/}
+                            {/*<FontIcon className="material-icons">*/}
+                                {/*arrow_forward*/}
+                            {/*</FontIcon>*/}
+                        {/*}*/}
+                        {/*onClick={this.nextAddress}*/}
+                    {/*/>*/}
                 </div>
             </div>
         );
