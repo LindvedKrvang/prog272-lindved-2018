@@ -1,5 +1,4 @@
 import React from 'react';
-// import '../css/AddressShow.css';
 import style from '../styles/style';
 import files from '../model/FileList';
 import { Text, View, Button } from 'react-native';
