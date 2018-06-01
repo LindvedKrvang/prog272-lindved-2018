@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import AddressShow from './AddressShow';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import FontIcon from 'material-ui/FontIcon';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Button from "@material-ui/core/es/Button/Button";
+import LeftArrowIcon from "@material-ui/icons/ArrowBack";
+import RightArrowIcon from "@material-ui/icons/ArrowForward";
 
-const style = {
-    marginLeft: 100,
-    marginRight: 100
-};
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+        width: 200
+    }
+});
 
 class App extends Component {
     constructor(props) {
@@ -62,48 +65,27 @@ class App extends Component {
     };
 
     render() {
+        const { classes } = this.props;
         return (
             <div className="App">
                 <AddressShow address={this.state.address} />
                 <div>
                     <Button
                         id="btnPrev"
-                        className="Btn"
+                        className={classes.button}
                         variant="raised"
+                        color="primary"
                         onClick={this.previousAddress}>
-                        Previous
+                        <LeftArrowIcon/>
                     </Button>
                     <Button
                         id="btnNext"
-                        className="Btn"
+                        className={classes.button}
                         variant="raised"
+                        color="primary"
                         onClick={this.nextAddress}>
-                        Next
+                        <RightArrowIcon/>
                     </Button>
-                    {/*<RaisedButton*/}
-                        {/*id="btnPrev"*/}
-                        {/*primary={true}*/}
-                        {/*style={style}*/}
-                        {/*className="Btn"*/}
-                        {/*icon={*/}
-                            {/*<FontIcon className="material-icons">*/}
-                                {/*arrow_back*/}
-                            {/*</FontIcon>*/}
-                        {/*}*/}
-                        {/*onClick={this.previousAddress}*/}
-                    {/*/>*/}
-                    {/*<RaisedButton*/}
-                        {/*id="btnNext"*/}
-                        {/*primary={true}*/}
-                        {/*style={style}*/}
-                        {/*className="Btn"*/}
-                        {/*icon={*/}
-                            {/*<FontIcon className="material-icons">*/}
-                                {/*arrow_forward*/}
-                            {/*</FontIcon>*/}
-                        {/*}*/}
-                        {/*onClick={this.nextAddress}*/}
-                    {/*/>*/}
                 </div>
             </div>
         );
@@ -114,4 +96,4 @@ App.propTypes = {
     server: PropTypes.object
 };
 
-export default App;
+export default withStyles(styles)(App);

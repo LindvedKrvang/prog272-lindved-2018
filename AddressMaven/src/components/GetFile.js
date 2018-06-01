@@ -2,7 +2,14 @@ import React from 'react';
 import '../css/AddressShow.css';
 import files from '../model/FileList';
 import Button from "@material-ui/core/es/Button/Button";
-// import RaisedButton from 'material-ui/RaisedButton';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+        width: 200
+    }
+});
 
 class GetFile extends React.Component {
     constructor(props) {
@@ -26,6 +33,7 @@ class GetFile extends React.Component {
     };
 
     render() {
+        const { classes } = this.props;
         return (
             <div className="App">
                 <br />
@@ -40,20 +48,12 @@ class GetFile extends React.Component {
                 </div>
                 <br />
                 <br />
-                <Button variant="raised" id="btnGetFile" className="Btn" onClick={this.getFile}>
-                    Default
+                <Button variant="raised" id="btnGetFile" color="primary" className={classes.button} onClick={this.getFile}>
+                    Get File
                 </Button>
-                {/*<RaisedButton*/}
-                    {/*id="btnGetFile"*/}
-                    {/*primary={true}*/}
-                    {/*className="Btn"*/}
-                    {/*onClick={this.getFile}*/}
-                {/*>*/}
-                    {/*Get File*/}
-                {/*</RaisedButton>*/}
             </div>
         );
     }
 }
 
-export default GetFile;
+export default withStyles(styles)(GetFile);

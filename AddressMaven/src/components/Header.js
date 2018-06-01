@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import '../css/AddressShow.css';
 import '../css/Menu.css';
-import { Link } from 'react-router-dom';
-import * as routes from '../routes/RouteNames';
 import AppBar from "@material-ui/core/es/AppBar/AppBar";
 import Drawer from "@material-ui/core/es/Drawer/Drawer";
-import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
 import Toolbar from "@material-ui/core/es/Toolbar/Toolbar";
 import Typography from "@material-ui/core/es/Typography/Typography";
 import IconButton from "@material-ui/core/es/IconButton/IconButton";
-import Button from "@material-ui/core/es/Button/Button";
 import MenuIcon from '@material-ui/icons/Menu';
-// import AppBar from 'material-ui/AppBar';
-// import Drawer from 'material-ui/Drawer';
-// import MenuItem from 'material-ui/MenuItem';
+import { withStyles } from '@material-ui/core/styles';
+
+import {menuItems} from "./TileData";
+
+const styles = {
+    list: {
+        width: 250,
+    },
+};
 
 class Header extends Component {
     constructor(props) {
@@ -31,11 +33,12 @@ class Header extends Component {
     };
 
     render() {
+        const { classes } = this.props;
         return (
             <div >
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton  color="inherit" aria-label="Menu">
+                        <IconButton  color="inherit" aria-label="Menu" onClick={this.toggleSidebar}>
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="title" color="inherit">
@@ -43,36 +46,19 @@ class Header extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-            </div>
+                <Drawer open={this.state.showSidebar} onClose={this.toggleSidebar}>
+                    <div role="button"
+                        onClick={this.toggleSidebar}
+                        onKeyDown={this.toggleSidebar}>
+                        <div className={classes.list}>
+                            {menuItems}
+                        </div>
+                    </div>
+                </Drawer>
 
+            </div>
         );
     }
 }
 
-export default Header;
-
-{/*<div>*/}
-{/*<AppBar*/}
-{/*title="Address Maven"*/}
-{/*iconClassNameRight="muidocs-icon.navigation-expand-more"*/}
-{/*onLeftIconButtonClick={this.toggleSidebar}*/}
-{/*/>*/}
-{/*<Drawer*/}
-{/*docked={false}*/}
-{/*width={200}*/}
-{/*open={this.state.showSidebar}*/}
-{/*onRequestChange={this.toggleSidebar}*/}
-{/*>*/}
-{/*<AppBar title="Address Show" />*/}
-{/*<MenuItem*/}
-{/*primaryText="Addresses"*/}
-{/*containerElement={<Link to={routes.AddressRoute} />}*/}
-{/*onClick={this.toggleSidebar}*/}
-{/*/>*/}
-{/*<MenuItem*/}
-{/*primaryText="Files"*/}
-{/*containerElement={<Link to={routes.GetFileRoute} />}*/}
-{/*onClick={this.toggleSidebar}*/}
-{/*/>*/}
-{/*</Drawer>*/}
-{/*</div>*/}
+export default withStyles(styles)(Header);
