@@ -11,6 +11,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+        this.DBIp = 'http://10.12.32.126:5984';
         this.state= {
             addressIndex: 10000,
             firstName: 'unknown',
@@ -22,7 +23,7 @@ class App extends Component {
 
     componentDidMount() {
         this.db = new PuchDB('addresses');
-        this.remoteCouch = 'http://10.12.183.153:5984/addresses';
+        this.remoteCouch = this.DBIp + '/addresses';
         // this.remoteCouch = false;
         this.syncDom = document.getElementById('sync-wrapper');
 
