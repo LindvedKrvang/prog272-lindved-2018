@@ -2,12 +2,15 @@
   "name": "week09-small-address-couch",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:30028",
   "dependencies": {
-    "@material-ui/core": "^1.1.0",
+    "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
     "pouchdb": "^6.4.3",
+    "pouchdb-find": "^6.4.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
