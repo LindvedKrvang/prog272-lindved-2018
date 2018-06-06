@@ -7,6 +7,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+        this.DBIp = "http://10.12.32.126:5984";
         this.canceled = false;
         this.state = {
             editOpen: false,
