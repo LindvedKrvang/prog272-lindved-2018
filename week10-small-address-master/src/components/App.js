@@ -25,8 +25,8 @@ class App extends Component {
                     <Header />
                     <Route id="home" exact path="/" component={Home} />
                     <Route
-                        id="address"
-                        path="/address"
+                        id="addresses"
+                        path="/addresses"
                         render={props => (
                             <Address {...props} dataManager={dataManager} />
                         )}
