@@ -3,6 +3,7 @@ import '../App.css';
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import Paper from "@material-ui/core/es/Paper/Paper";
+import AddressEdit from "./AddressEdit";
 
 const styles = theme => ({
     button: {
@@ -38,8 +39,40 @@ class AddressShow extends Component {
         };
     }
 
+    setEdits = (name, event) => {
+        var data = this.props.name;
+        data[name] = event.target.value;
+        this.setState({edits: data});
+    };
+
+    addressEdit = address => {
+        console.log(address);
+
+        if (!address) {
+            return this.setState({editOpen: false});
+        }
+
+        this.setState({
+            edits: address,
+            editOpen: false
+        });
+    };
+
+    save = () => {
+        this.props.save(this.state.edits);
+    };
+
     render() {
         const {classes} = this.props;
+        const editDialog = this.state.editOpen ? (
+            <AddressEdit
+                address={this.props.name}
+                open={this.state.editOpen}
+                addressEdit={this.addressEdit}
+            />
+        ) : (
+            <div/>
+        );
 
         return (
             <div className={classes.container}>
@@ -93,6 +126,7 @@ class AddressShow extends Component {
                             Delete
                         </Button>
                     </div>
+                    {editDialog}
                 </Paper>
             </div>
         );

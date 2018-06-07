@@ -18,12 +18,12 @@ class App extends Component {
                 lastName: 'unknown'
             }]
         };
+
     }
 
     componentDidMount() {
         this.db = new PuchDB('addresses');
         this.remoteCouch = this.DBIp + '/addresses';
-        // this.remoteCouch = false;
         this.syncDom = document.getElementById('sync-wrapper');
 
         this.db.changes({
