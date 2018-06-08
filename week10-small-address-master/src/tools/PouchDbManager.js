@@ -5,10 +5,10 @@ class DataManager {
     constructor() {
         console.log('DataManager Constructor');
         PouchDB.plugin(PouchdbFind);
-        this.DBIp = "http://10.12.32.126:5984";
+        this.DBIp = "http://192.168.1.29:5984";
         this.addressList = null;
         this.addressIndex = 0;
-        this.DATABASE_NAME = '/small-address';
+        this.DATABASE_NAME = '/small-address-lindved';
     }
 
     init = () => {

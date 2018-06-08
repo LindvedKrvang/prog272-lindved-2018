@@ -46,6 +46,9 @@ export default class AddressEdit extends Component {
                         <AddressEditFields address={this.props.address} addressChangedByUser={this.addressChangedByUser}/>
                     </DialogContent>
                     <DialogActions>
+                        <Button onClick={this.userClosedDialogNormal} color="primary">
+                            Ok
+                        </Button>
                         <Button onClick={this.userCanceledDialog} color="primary">
                             Cancel
                         </Button>

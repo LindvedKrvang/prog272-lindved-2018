@@ -90,7 +90,7 @@ class App extends Component {
                 console.log(response);
             })
             .catch(function(err) {
-                console.log(err);
+                console.log("save", err);
             });
     };
 
