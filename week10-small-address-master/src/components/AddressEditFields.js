@@ -13,7 +13,9 @@ class AddressFields extends Component {
                     label="First Name"
                     type="string"
                     value={this.props.address.firstName}
-                    onChange={e => this.props.addressChangedByUser('firstName', e)}
+                    onChange={e =>
+                        this.props.addressChangedByUser('firstName', e)
+                    }
                     fullWidth
                 />
                 <TextField
@@ -22,7 +24,9 @@ class AddressFields extends Component {
                     label="Last Name"
                     type="string"
                     value={this.props.address.lastName}
-                    onChange={e => this.props.addressChangedByUser('lastName', e)}
+                    onChange={e =>
+                        this.props.addressChangedByUser('lastName', e)
+                    }
                     fullWidth
                 />
             </div>

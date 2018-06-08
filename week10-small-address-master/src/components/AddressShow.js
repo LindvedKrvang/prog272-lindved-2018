@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Button from "@material-ui/core/Button";
-import withStyles from "@material-ui/core/es/styles/withStyles";
-import Paper from "@material-ui/core/es/Paper/Paper";
-import AddressEdit from "./AddressEdit";
+import Button from '@material-ui/core/Button';
+import withStyles from '@material-ui/core/es/styles/withStyles';
+import Paper from '@material-ui/core/es/Paper/Paper';
+import AddressEdit from './AddressEdit';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
     button: {
@@ -21,11 +22,10 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
         marginLeft: theme.spacing.unit * 3,
         marginRight: theme.spacing.unit * 3
-    }),
+    })
 });
 
 class AddressShow extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -41,14 +41,14 @@ class AddressShow extends Component {
     setEdits = (name, event) => {
         var data = this.props.name;
         data[name] = event.target.value;
-        this.setState({edits: data});
+        this.setState({ edits: data });
     };
 
     addressEdit = address => {
         console.log(address);
 
         if (!address) {
-            return this.setState({editOpen: false});
+            return this.setState({ editOpen: false });
         }
 
         this.setState({
@@ -62,7 +62,7 @@ class AddressShow extends Component {
     };
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         const editDialog = this.state.editOpen ? (
             <AddressEdit
                 address={this.props.name}
@@ -70,7 +70,7 @@ class AddressShow extends Component {
                 addressEdit={this.addressEdit}
             />
         ) : (
-            <div/>
+            <div />
         );
 
         return (
@@ -104,7 +104,7 @@ class AddressShow extends Component {
                         <Button
                             color="secondary"
                             variant="raised"
-                            onClick={() => this.setState({editOpen: true})}
+                            onClick={() => this.setState({ editOpen: true })}
                         >
                             Edit
                         </Button>
@@ -132,5 +132,13 @@ class AddressShow extends Component {
     }
 }
 
+AddressShow.propTypes = {
+    name: PropTypes.object,
+    save: PropTypes.func,
+    classes: PropTypes.object,
+    showAddress: PropTypes.func,
+    setAddress: PropTypes.func,
+    delete: PropTypes.func
+};
 
 export default withStyles(styles)(AddressShow);

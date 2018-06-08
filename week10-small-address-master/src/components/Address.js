@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PuchDB from 'pouchdb';
-import AddressShow from "./AddressShow";
+import AddressShow from './AddressShow';
+import PropTypes from 'prop-types';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
-        this.DBIp = "http://10.12.32.126:5984";
+        this.DBIp = 'http://10.12.32.126:5984';
         this.canceled = false;
         this.state = {
             editOpen: false,
             namesIndex: 0,
-            names: [{
-                _id: 'unknown',
-                firstName: 'unknown',
-                lastName: 'unknown'
-            }]
+            names: [
+                {
+                    _id: 'unknown',
+                    firstName: 'unknown',
+                    lastName: 'unknown'
+                }
+            ]
         };
-
     }
 
     componentDidMount() {
@@ -26,22 +27,24 @@ class App extends Component {
         this.remoteCouch = this.DBIp + '/addresses';
         this.syncDom = document.getElementById('sync-wrapper');
 
-        this.db.changes({
-            since: 'now',
-            live: true
-        }).on('change', this.showAddress);
+        this.db
+            .changes({
+                since: 'now',
+                live: true
+            })
+            .on('change', this.showAddress);
     }
 
     addAddressReal = () => {
         const indexValue = this.state.addressIndex + 1;
-        this.setState({addressIndex: indexValue});
+        this.setState({ addressIndex: indexValue });
         const address = {
             _id: new Date().toISOString(),
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             completed: false
         };
-        this.db.put(address, function callback(err, result) {
+        this.db.put(address, function callback(err) {
             if (!err) {
                 console.log('Successfully posted a r!');
             }
@@ -75,14 +78,14 @@ class App extends Component {
             });
     };
 
-    setAddress = (offset) => {
+    setAddress = offset => {
         const value = this.state.namesIndex + offset;
         if (value >= 0 && value <= this.state.names.length - 1) {
             this.setState({ namesIndex: value, open: this.state.editOpen });
         }
     };
 
-    save = (name) => {
+    save = name => {
         console.log(name);
         this.props.dataManager
             .save(name)
@@ -90,11 +93,11 @@ class App extends Component {
                 console.log(response);
             })
             .catch(function(err) {
-                console.log("save", err);
+                console.log('save', err);
             });
     };
 
-    delete = (name) => {
+    delete = name => {
         this.props.dataManager
             .delete(name._id)
             .then(function(result) {
@@ -105,17 +108,21 @@ class App extends Component {
             });
     };
 
-    render() {return (
-        <AddressShow
-            name={this.state.names[this.state.namesIndex]}
-            showAddress={this.showAddress}
-            setAddress={this.setAddress}
-            save={this.save}
-            delete={this.delete}
-        />
+    render() {
+        return (
+            <AddressShow
+                name={this.state.names[this.state.namesIndex]}
+                showAddress={this.showAddress}
+                setAddress={this.setAddress}
+                save={this.save}
+                delete={this.delete}
+            />
         );
     }
 }
 
+App.propTypes = {
+    dataManager: PropTypes.object
+};
 
 export default App;

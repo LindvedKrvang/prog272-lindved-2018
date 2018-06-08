@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -9,7 +10,6 @@ import AddressEditFields from './AddressEditFields';
 import addressList from '../address-list';
 
 export default class AddressEdit extends Component {
-
     state = {
         open: this.props.open,
         address: addressList[0]
@@ -43,13 +43,22 @@ export default class AddressEdit extends Component {
                         <DialogContentText>
                             Fill in the fields of the address record.
                         </DialogContentText>
-                        <AddressEditFields address={this.props.address} addressChangedByUser={this.addressChangedByUser}/>
+                        <AddressEditFields
+                            address={this.props.address}
+                            addressChangedByUser={this.addressChangedByUser}
+                        />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.userClosedDialogNormal} color="primary">
+                        <Button
+                            onClick={this.userClosedDialogNormal}
+                            color="primary"
+                        >
                             Ok
                         </Button>
-                        <Button onClick={this.userCanceledDialog} color="primary">
+                        <Button
+                            onClick={this.userCanceledDialog}
+                            color="primary"
+                        >
                             Cancel
                         </Button>
                     </DialogActions>
@@ -58,3 +67,9 @@ export default class AddressEdit extends Component {
         );
     }
 }
+
+AddressEdit.propTypes = {
+    open: PropTypes.bool,
+    addressEdit: PropTypes.func,
+    address: PropTypes.object
+};
