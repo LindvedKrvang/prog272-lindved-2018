@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 const styles = theme => ({
-    button: {
+    TopRightSpace: {
         margin: theme.spacing.unit,
         width: 200
     }
@@ -53,7 +53,7 @@ class GetFile extends React.Component {
                     variant="raised"
                     id="btnGetFile"
                     color="primary"
-                    className={classes.button}
+                    className={classes.TopRightSpace}
                     onClick={this.getFile}
                 >
                     Get File

@@ -8,10 +8,11 @@ import LeftArrowIcon from '@material-ui/icons/ArrowBack';
 import RightArrowIcon from '@material-ui/icons/ArrowForward';
 import DatabaseManager from '../dal/DatabaseManager';
 import NoData from './NoData';
+import EditAddress from './EditAddress';
 
 
 const styles = theme => ({
-    button: {
+    TopRightSpace: {
         margin: theme.spacing.unit,
         width: 200
     }
@@ -89,11 +90,12 @@ class App extends Component {
             <NoData/>
         ) : (
             <div className="App">
+                <EditAddress address={this.state.address}/>
                 <AddressShow address={this.state.address} />
                 <div>
                     <Button
                         id="btnPrev"
-                        className={classes.button}
+                        className={classes.TopRightSpace}
                         variant="raised"
                         color="primary"
                         onClick={this.previousAddress}
@@ -102,7 +104,7 @@ class App extends Component {
                     </Button>
                     <Button
                         id="btnNext"
-                        className={classes.button}
+                        className={classes.TopRightSpace}
                         variant="raised"
                         color="primary"
                         onClick={this.nextAddress}
