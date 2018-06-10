@@ -5,6 +5,7 @@ import AddressShow from './AddressShow';
 import PropTypes from 'prop-types';
 
 class App extends Component {
+
     constructor(props) {
         super(props);
         this.DBIp = 'http://10.12.32.126:5984';
@@ -12,13 +13,11 @@ class App extends Component {
         this.state = {
             editOpen: false,
             namesIndex: 0,
-            names: [
-                {
+            names: [{
                     _id: 'unknown',
                     firstName: 'unknown',
                     lastName: 'unknown'
-                }
-            ]
+                }]
         };
     }
 

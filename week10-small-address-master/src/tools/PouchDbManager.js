@@ -1,10 +1,10 @@
 import PouchDB from 'pouchdb';
-import PouchdbFind from 'pouchdb-find';
+import PouchDbFind from 'pouchdb-find';
 
 class DataManager {
     constructor() {
         console.log('DataManager Constructor');
-        PouchDB.plugin(PouchdbFind);
+        PouchDB.plugin(PouchDbFind);
         this.DBIp = 'http://192.168.1.29:5984';
         this.addressList = null;
         this.addressIndex = 0;
