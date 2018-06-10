@@ -22,7 +22,7 @@ const styles = theme => ({
     }),
 });
 
-const ServerIp = "http://ec2-52-14-172-18.us-east-2.compute.amazonaws.com:30026";
+const LindvedServerIp = "http://ec2-52-14-172-18.us-east-2.compute.amazonaws.com:30026";
 
 class InitializeDatabase extends Component {
     constructor(props) {
@@ -45,9 +45,8 @@ class InitializeDatabase extends Component {
         this.props.dataManager.deleteDatabase();
     };
 
-    //TODO RKL: Refactor
     getAddressList = () => {
-        fetch(ServerIp + '/get-address-list')
+        fetch(LindvedServerIp + '/get-address-list')
             .then(response => response.json())
             .then(response => {
                 if (this.canceled) {

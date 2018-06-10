@@ -26,7 +26,7 @@ class App extends Component {
                     <Header />
                     <Route exact path={routes.Home} component={Home} />
                     <Route path={routes.AddressRoute} render={props => (
-                            <Address {...props} server={this.server} />
+                            <Address {...props} server={this.server} dataManager={dataManager}/>
                         )}
                     />
                     <Route path={routes.GetFileRoute} component={GetFile} />

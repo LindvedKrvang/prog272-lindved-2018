@@ -75,11 +75,15 @@ describe('Testing AddressShow component', () => {
         checkValue(addresses[1], 'Phone:', addresses[1].phone);
     });
 
-    it('Renders state of Fax paragraph', () => {
-        checkValue(addresses[1], 'Fax:', addresses[1].fax);
+    it('Renders state of Website paragraph', () => {
+        checkValue(addresses[1], 'Website:', addresses[1].website);
     });
 
-    it('Renders state of TollFree paragraph', () => {
-        checkValue(addresses[1], 'Toll Free:', addresses[1].tollFree);
+    it('Renders state of Email paragraph', () => {
+        checkValue(addresses[1], 'Email:', addresses[1].email);
+    });
+
+    it('Renders state of Contact paragraph', () => {
+        checkValue(addresses[1], 'Contact:', addresses[1].contact);
     });
 });

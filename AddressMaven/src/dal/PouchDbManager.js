@@ -1,8 +1,7 @@
 import PouchDB from 'pouchdb';
 import PouchDbFind from 'pouchdb-find';
+import * as DbInfo from './DatabaseInfo';
 
-const DATABASE_IP = 'http://192.168.1.29:5984';
-const DATABASE_NAME = '/lindved-final';
 
 class DataManager {
     constructor() {
@@ -11,8 +10,8 @@ class DataManager {
     }
 
     init = () => {
-        this.db = new PouchDB(DATABASE_NAME);
-        this.remoteCouch = DATABASE_IP + DATABASE_NAME;
+        this.db = new PouchDB(DbInfo.DATABASE_NAME);
+        this.remoteCouch = DbInfo.DATABASE_IP + DbInfo.DATABASE_NAME;
         return this.db;
     };
 

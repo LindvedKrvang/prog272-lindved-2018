@@ -18,8 +18,9 @@ class AddressShow extends Component {
                     {this.singleLine('State', this.props.address.state)}
                     {this.singleLine('Zip', this.props.address.zip)}
                     {this.singleLine('Phone', this.props.address.phone)}
-                    {this.singleLine('Fax', this.props.address.fax)}
-                    {this.singleLine('Toll Free', this.props.address.tollFree)}
+                    {this.singleLine('Website', this.props.address.website)}
+                    {this.singleLine('Email', this.props.address.email)}
+                    {this.singleLine('Contact', this.props.address.contact)}
                 </div>
             ) : (
                 <div>

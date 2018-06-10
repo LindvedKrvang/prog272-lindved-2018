@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import LeftArrowIcon from '@material-ui/icons/ArrowBack';
 import RightArrowIcon from '@material-ui/icons/ArrowForward';
+import DatabaseManager from '../dal/DatabaseManager';
+import NoData from './NoData';
+
 
 const styles = theme => ({
     button: {
@@ -18,16 +21,19 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.cancelled = false;
-        this.addresses = null;
+        this.databaseManager = new DatabaseManager(this.props.dataManager, this.refreshFromDatabase, this.failedDataLoad);
 
         this.state = {
             index: 0,
-            address: null
+            address: null,
+            addresses: null,
+            dataFailedLoading: false
         };
     }
 
     componentDidMount() {
-        this.props.server.getAddresses(this.refresh);
+        this.databaseManager.InitializeDatabase();
+        this.props.server.getAddresses(this.loadData);
     }
 
     componentWillUnmount() {
@@ -37,36 +43,51 @@ class App extends Component {
     nextAddress = () => {
         let index = this.state.index;
 
-        index = index >= this.addresses.length - 1 ? 0 : index + 1;
+        index = index >= this.state.addresses.length - 1 ? 0 : index + 1;
 
         this.setState({
             index: index,
-            address: this.addresses[index]
+            address: this.state.addresses[index]
         });
     };
 
     previousAddress = () => {
         let index = this.state.index;
 
-        index = index <= 0 ? this.addresses.length - 1 : index - 1;
+        index = index <= 0 ? this.state.addresses.length - 1 : index - 1;
 
         this.setState({
             index: index,
-            address: this.addresses[index]
+            address: this.state.addresses[index]
         });
     };
 
-    refresh = addresses => {
+    loadData = () => {
         if (this.cancelled) return;
-        this.addresses = addresses;
+        this.databaseManager.loadAllAddresses();
+    };
+
+    refreshFromDatabase = (addresses) => {
+        if (this.cancelled) return;
         this.setState({
-            address: this.addresses[this.state.index]
+            addresses: addresses
+        });
+        this.setState({
+            address: this.state.addresses[this.state.index]
+        });
+    };
+
+    failedDataLoad = () => {
+        this.setState({
+            dataFailedLoading: true
         });
     };
 
     render() {
         const { classes } = this.props;
-        return (
+        const display = this.state.dataFailedLoading ? (
+            <NoData/>
+        ) : (
             <div className="App">
                 <AddressShow address={this.state.address} />
                 <div>
@@ -89,6 +110,11 @@ class App extends Component {
                         <RightArrowIcon />
                     </Button>
                 </div>
+            </div>
+        );
+        return (
+            <div>
+                {display}
             </div>
         );
     }

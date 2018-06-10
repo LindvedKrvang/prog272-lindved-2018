@@ -11,8 +11,9 @@ export default class MockServer {
             state: unknown,
             zip: unknown,
             phone: unknown,
-            fax: unknown,
-            tollFree: unknown
+            website: unknown,
+            email: unknown,
+            contact: unknown
         },
         {
             firstName: 'Patty',
@@ -22,8 +23,9 @@ export default class MockServer {
             state: 'D.C.',
             zip: '20510',
             phone: '(202) 224-2621',
-            fax: '(202) 224-0238',
-            tollFree: '(866) 481-9186'
+            website: 'some.website.org',
+            email: 'some@email.org',
+            contact: 'someContact'
         }
     ];
 
