@@ -29,7 +29,7 @@ class EditAddress extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open: false,
+            dialogOpen: false,
             address: null,
         }
     }
@@ -37,7 +37,7 @@ class EditAddress extends Component {
     handleOpenDialog = () => {
         const address = this.props.address;
         this.setState({
-            open: true,
+            dialogOpen: true,
             address: address,
             firstName: address.firstName,
             lastName: address.lastName,
@@ -54,7 +54,7 @@ class EditAddress extends Component {
 
     handleCloseDialog = () => {
         this.setState({
-            open: false
+            dialogOpen: false
         })
     };
 
@@ -138,6 +138,38 @@ class EditAddress extends Component {
         );
     };
 
+    renderDialog = (fields) => {
+      return (
+          <Dialog open={this.state.dialogOpen}
+                  TransitionComponent={Transition}
+                  keepMounted
+                  onClose={this.handleCloseDialog}>
+              <DialogTitle>
+                  {"Modify Address"}
+              </DialogTitle>
+              <DialogContent>
+                  {fields}
+              </DialogContent>
+              <DialogActions>
+                  <Button color="primary" onClick={this.save}>
+                      Save
+                      <SaveIcon/>
+                  </Button>
+                  <Button color="secondary" onClick={this.delete}>
+                      Delete
+                      <DeleteIcon/>
+                  </Button>
+                  <Button onClick={this.handleCloseDialog}>
+                      Cancel
+                      <ClearIcon/>
+                  </Button>
+              </DialogActions>
+          </Dialog>
+      );
+    };
+
+
+
     render(){
         const {classes} = this.props;
 
@@ -164,31 +196,7 @@ class EditAddress extends Component {
                         onClick={this.handleOpenDialog}>
                     <EditIcon/>
                 </Button>
-                <Dialog open={this.state.open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={this.handleCloseDialog}>
-                    <DialogTitle>
-                        {"Modify Address"}
-                    </DialogTitle>
-                    <DialogContent>
-                        {fields}
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={this.save}>
-                            Save
-                            <SaveIcon/>
-                        </Button>
-                        <Button color="secondary" onClick={this.delete}>
-                            Delete
-                            <DeleteIcon/>
-                        </Button>
-                        <Button onClick={this.handleCloseDialog}>
-                            Cancel
-                            <ClearIcon/>
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                {this.renderDialog(fields)}
             </div>
         )
     }

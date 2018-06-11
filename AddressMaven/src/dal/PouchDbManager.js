@@ -7,6 +7,7 @@ class DataManager {
     constructor() {
         PouchDB.plugin(PouchDbFind);
         this.addressList = null;
+        this.isSynced = false;
     }
 
     init = () => {
@@ -127,9 +128,14 @@ class DataManager {
         console.log(b);
     };
 
+    getSyncStatus = () => {
+        return this.isSynced;
+    };
+
     sync = () => {
         console.log('syncing');
         const opts = {live: true};
+        this.isSynced = true;
 
         this.db.replicate
             .to(this.remoteCouch, opts)

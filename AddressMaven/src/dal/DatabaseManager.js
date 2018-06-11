@@ -53,5 +53,9 @@ export default class DatabaseManager {
 
     saveAddresses = (address) => {
         return this.database.save(address);
-    }
+    };
+
+    isSynced = () => {
+        return this.database.getSyncStatus();
+    };
 }

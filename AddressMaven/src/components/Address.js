@@ -9,6 +9,9 @@ import RightArrowIcon from '@material-ui/icons/ArrowForward';
 import DatabaseManager from '../dal/DatabaseManager';
 import NoData from './NoData';
 import EditAddress from './EditAddress';
+import CloseIcon from '@material-ui/icons/Close';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 
 
 const styles = theme => ({
@@ -28,6 +31,7 @@ class App extends Component {
             index: 0,
             address: null,
             addresses: null,
+            snackOpen: false,
             dataFailedLoading: false
         };
     }
@@ -99,10 +103,46 @@ class App extends Component {
             .catch(function(err) {
                 console.log('Failed to save changes', err);
             });
+        
+        if(!this.databaseManager.isSynced()){
+            this.handleOpenSnack();
+        }
+    };
+
+    handleOpenSnack = () => {
+        this.setState({
+            snackOpen: true
+        });
+    };
+
+    handleCloseSnack = () => {
+        this.setState({
+            snackOpen: false
+        })
+    };
+
+    renderSnackBar = () => {
+        return (
+            <Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
+                      open={this.state.snackOpen}
+                      autoHideDuration={6000}
+                      onClose={this.handleCloseSnack}
+                      message={<span>Changes saved locally. Sync database to persist changes</span>}
+                      action={[
+                          <Button key="sync" color="secondary" size="small" onClick={this.handleCloseSnack}>
+                              Sync now
+                          </Button>,
+                          <IconButton key="close" color="inherit" onClick={this.handleCloseSnack}>
+                              <CloseIcon/>
+                          </IconButton>
+                      ]}/>
+        );
     };
 
     render() {
         const { classes } = this.props;
+
+        const snackbar = this.renderSnackBar();
         const display = this.state.dataFailedLoading ? (
             <NoData/>
         ) : (
@@ -131,9 +171,11 @@ class App extends Component {
                 </div>
             </div>
         );
+
         return (
             <div>
                 {display}
+                {snackbar}
             </div>
         );
     }
