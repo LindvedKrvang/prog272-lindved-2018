@@ -58,4 +58,8 @@ export default class DatabaseManager {
     isSynced = () => {
         return this.database.getSyncStatus();
     };
+
+    sync = () => {
+        this.database.sync();
+    }
 }

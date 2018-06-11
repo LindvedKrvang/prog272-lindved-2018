@@ -103,10 +103,15 @@ class App extends Component {
             .catch(function(err) {
                 console.log('Failed to save changes', err);
             });
-        
+
         if(!this.databaseManager.isSynced()){
             this.handleOpenSnack();
         }
+    };
+
+    syncDatabase = () => {
+        this.handleCloseSnack();
+        this.databaseManager.sync();
     };
 
     handleOpenSnack = () => {
@@ -129,7 +134,7 @@ class App extends Component {
                       onClose={this.handleCloseSnack}
                       message={<span>Changes saved locally. Sync database to persist changes</span>}
                       action={[
-                          <Button key="sync" color="secondary" size="small" onClick={this.handleCloseSnack}>
+                          <Button key="sync" color="secondary" size="small" onClick={this.syncDatabase}>
                               Sync now
                           </Button>,
                           <IconButton key="close" color="inherit" onClick={this.handleCloseSnack}>
