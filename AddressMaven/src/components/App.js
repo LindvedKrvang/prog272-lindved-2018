@@ -3,7 +3,7 @@ import Address from './Address';
 import GetFile from './GetFile';
 import Home from './Home';
 import InitDB from './InitializeDatabase';
-import * as routes from '../routes/RouteNames';
+import { RouteNames } from '../routes/RouteNames';
 import Header from './Header';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Server from '../dal/LindvedServer';
@@ -24,13 +24,13 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Header />
-                    <Route exact path={routes.Home} component={Home} />
-                    <Route path={routes.AddressRoute} render={props => (
+                    <Route exact path={RouteNames.Home} component={Home} />
+                    <Route path={RouteNames.AddressRoute} render={props => (
                             <Address {...props} server={this.server} dataManager={dataManager}/>
                         )}
                     />
-                    <Route path={routes.GetFileRoute} component={GetFile} />
-                    <Route path={routes.InitDatabase} render={props => (
+                    <Route path={RouteNames.GetFileRoute} component={GetFile} />
+                    <Route path={RouteNames.InitDatabase} render={props => (
                             <InitDB {...props} dataManager={dataManager} />
                         )}
                     />

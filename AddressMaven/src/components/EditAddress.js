@@ -11,7 +11,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
-import * as AddressNames from '../be/AddressFieldNames';
+import { AddressFieldNames } from '../be/AddressFieldNames';
 
 const styles = () => ({
     TopRightSpace: {
@@ -63,44 +63,47 @@ class EditAddress extends Component {
     updateField = (fieldId, event) => {
         console.log(event.target.value);
         switch (fieldId){
-            case AddressNames.FirstNameId:{
+            case AddressFieldNames.FirstNameId:{
                 this.setState({ firstName: event.target.value });
                 break;
             }
-            case AddressNames.LastNameId:{
+            case AddressFieldNames.LastNameId:{
                 this.setState({ lastName: event.target.value });
                 break;
             }
-            case AddressNames.StreetId:{
+            case AddressFieldNames.StreetId:{
                 this.setState({ street: event.target.value });
                 break;
             }
-            case AddressNames.CityId:{
+            case AddressFieldNames.CityId:{
                 this.setState({ city: event.target.value });
                 break;
             }
-            case AddressNames.StateId:{
+            case AddressFieldNames.StateId:{
                 this.setState({ state: event.target.value });
                 break;
             }
-            case AddressNames.ZipId:{
+            case AddressFieldNames.ZipId:{
                 this.setState({ zip: event.target.value });
                 break;
             }
-            case AddressNames.PhoneId:{
+            case AddressFieldNames.PhoneId:{
                 this.setState({ phone: event.target.value });
                 break;
             }
-            case AddressNames.WebsiteId:{
+            case AddressFieldNames.WebsiteId:{
                 this.setState({ website: event.target.value });
                 break;
             }
-            case AddressNames.EmailId:{
+            case AddressFieldNames.EmailId:{
                 this.setState({ email: event.target.value });
                 break;
             }
-            case AddressNames.ContactId:{
+            case AddressFieldNames.ContactId:{
                 this.setState({ contact: event.target.value });
+                break;
+            }
+            default: {
                 break;
             }
         }
@@ -119,16 +122,16 @@ class EditAddress extends Component {
 
         const fields = this.state.address !== null ? (
             <div>
-                {this.renderField(AddressNames.FirstNameId, AddressNames.FirstName, this.state.firstName)}
-                {this.renderField(AddressNames.LastNameId, AddressNames.LastName, this.state.lastName)}
-                {this.renderField(AddressNames.StreetId, AddressNames.Street, this.state.street)}
-                {this.renderField(AddressNames.CityId, AddressNames.City, this.state.city)}
-                {this.renderField(AddressNames.StateId, AddressNames.State, this.state.state)}
-                {this.renderField(AddressNames.ZipId, AddressNames.Zip, this.state.zip)}
-                {this.renderField(AddressNames.PhoneId, AddressNames.Phone, this.state.phone)}
-                {this.renderField(AddressNames.WebsiteId, AddressNames.Website, this.state.website)}
-                {this.renderField(AddressNames.EmailId, AddressNames.Email, this.state.email)}
-                {this.renderField(AddressNames.ContactId, AddressNames.Contact, this.state.contact)}
+                {this.renderField(AddressFieldNames.FirstNameId, AddressFieldNames.FirstName, this.state.firstName)}
+                {this.renderField(AddressFieldNames.LastNameId, AddressFieldNames.LastName, this.state.lastName)}
+                {this.renderField(AddressFieldNames.StreetId, AddressFieldNames.Street, this.state.street)}
+                {this.renderField(AddressFieldNames.CityId, AddressFieldNames.City, this.state.city)}
+                {this.renderField(AddressFieldNames.StateId, AddressFieldNames.State, this.state.state)}
+                {this.renderField(AddressFieldNames.ZipId, AddressFieldNames.Zip, this.state.zip)}
+                {this.renderField(AddressFieldNames.PhoneId, AddressFieldNames.Phone, this.state.phone)}
+                {this.renderField(AddressFieldNames.WebsiteId, AddressFieldNames.Website, this.state.website)}
+                {this.renderField(AddressFieldNames.EmailId, AddressFieldNames.Email, this.state.email)}
+                {this.renderField(AddressFieldNames.ContactId, AddressFieldNames.Contact, this.state.contact)}
             </div>
         ) : (<div/>);
         return (

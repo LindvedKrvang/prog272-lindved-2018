@@ -1,4 +1,6 @@
-export const Home = '/';
-export const AddressRoute = '/addresses';
-export const GetFileRoute = '/get-file';
-export const InitDatabase = '/init-data';
+export const RouteNames = {
+    Home: '/',
+    AddressRoute: '/addresses',
+    GetFileRoute: '/get-file',
+    InitDatabase: '/init-data'
+};

@@ -1,21 +1,23 @@
-export const FirstName = "First Name";
-export const LastName = "Last Name";
-export const Street = "Street";
-export const City = "City";
-export const State = "State";
-export const Zip = "Zip";
-export const Phone = "Phone";
-export const Website = "Website";
-export const Email = "Email";
-export const Contact = "Contact";
+export const AddressFieldNames = {
+    FirstName: "First Name",
+    LastName: "Last Name",
+    Street: "Street",
+    City: "City",
+    State: "State",
+    Zip: "Zip",
+    Phone: "Phone",
+    Website: "Website",
+    Email: "Email",
+    Contact: "Contact",
 
-export const FirstNameId = "firstName";
-export const LastNameId = "lastName";
-export const StreetId = "street";
-export const CityId = "city";
-export const StateId = "state";
-export const ZipId = "zip";
-export const PhoneId = "phone";
-export const WebsiteId = "website";
-export const EmailId = "email";
-export const ContactId = "contact";
+    FirstNameId: "firstName",
+    LastNameId: "lastName",
+    StreetId: "street",
+    CityId: "city",
+    StateId: "state",
+    ZipId: "zip",
+    PhoneId: "phone",
+    WebsiteId: "website",
+    EmailId: "email",
+    ContactId: "contact"
+};
