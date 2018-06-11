@@ -84,13 +84,30 @@ class App extends Component {
         });
     };
 
+    saveAddress = (address) => {
+        const addresses = this.state.addresses;
+        addresses[this.state.index] = address;
+        this.setState({
+            address: address,
+            addresses: addresses
+        });
+
+        this.databaseManager.saveAddresses(address)
+            .then(function(response) {
+                console.log("Successfully saved changes");
+            })
+            .catch(function(err) {
+                console.log('Failed to save changes', err);
+            });
+    };
+
     render() {
         const { classes } = this.props;
         const display = this.state.dataFailedLoading ? (
             <NoData/>
         ) : (
             <div className="App">
-                <EditAddress address={this.state.address}/>
+                <EditAddress address={this.state.address} saveAddress={this.saveAddress}/>
                 <AddressShow address={this.state.address} />
                 <div>
                     <Button

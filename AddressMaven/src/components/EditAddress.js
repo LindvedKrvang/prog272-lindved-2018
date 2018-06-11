@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
-import SaveIcon from '@material-ui/icons/Create';
+import SaveIcon from '@material-ui/icons/Save';
 import ClearIcon from '@material-ui/icons/Clear';
 import { withStyles } from '@material-ui/core/styles';
 import Slide from "@material-ui/core/Slide";
@@ -28,10 +28,8 @@ class EditAddress extends Component {
 
     constructor(props){
         super(props);
-        this.tmp = "Hello World";
         this.state = {
             open: false,
-            tmp: "Hello World",
             address: null,
         }
     }
@@ -109,6 +107,29 @@ class EditAddress extends Component {
         }
     };
 
+    save = () => {
+        const address = {
+            _id: this.state.address._id,
+            _rev: this.state.address._rev,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            street: this.state.street,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip,
+            phone: this.state.phone,
+            website: this.state.website,
+            email: this.state.email,
+            contact: this.state.contact
+        };
+        this.handleCloseDialog();
+        this.props.saveAddress(address);
+    };
+
+    delete = () => {
+        console.log("Delete called");
+    };
+
     renderField = (id, name, value) => {
         return (
             <TextField id={id} label={name} type="text" value={value}
@@ -154,11 +175,11 @@ class EditAddress extends Component {
                         {fields}
                     </DialogContent>
                     <DialogActions>
-                        <Button color="primary">
+                        <Button color="primary" onClick={this.save}>
                             Save
                             <SaveIcon/>
                         </Button>
-                        <Button color="secondary">
+                        <Button color="secondary" onClick={this.delete}>
                             Delete
                             <DeleteIcon/>
                         </Button>

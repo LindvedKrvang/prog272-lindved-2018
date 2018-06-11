@@ -50,4 +50,8 @@ export default class DatabaseManager {
                 this.onError();
             });
     };
+
+    saveAddresses = (address) => {
+        return this.database.save(address);
+    }
 }
