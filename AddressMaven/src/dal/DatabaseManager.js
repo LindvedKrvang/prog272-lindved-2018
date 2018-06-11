@@ -51,8 +51,12 @@ export default class DatabaseManager {
             });
     };
 
-    saveAddresses = (address) => {
+    saveAddress = (address) => {
         return this.database.save(address);
+    };
+
+    deleteAddress = (addressId) => {
+        return this.database.delete(addressId);
     };
 
     isSynced = () => {

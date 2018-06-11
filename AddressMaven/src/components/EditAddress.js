@@ -107,8 +107,8 @@ class EditAddress extends Component {
         }
     };
 
-    save = () => {
-        const address = {
+    createAddress = () => {
+        return {
             _id: this.state.address._id,
             _rev: this.state.address._rev,
             firstName: this.state.firstName,
@@ -122,12 +122,18 @@ class EditAddress extends Component {
             email: this.state.email,
             contact: this.state.contact
         };
+    };
+
+    save = () => {
+        const address = this.createAddress();
         this.handleCloseDialog();
         this.props.saveAddress(address);
     };
 
     delete = () => {
-        console.log("Delete called");
+        const addressId = this.state.address._id;
+        this.handleCloseDialog();
+        this.props.deleteAddress(addressId);
     };
 
     renderField = (id, name, value) => {

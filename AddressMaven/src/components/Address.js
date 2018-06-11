@@ -96,12 +96,26 @@ class App extends Component {
             addresses: addresses
         });
 
-        this.databaseManager.saveAddresses(address)
+        this.databaseManager.saveAddress(address)
             .then(function(response) {
                 console.log("Successfully saved changes");
             })
             .catch(function(err) {
                 console.log('Failed to save changes', err);
+            });
+
+        if(!this.databaseManager.isSynced()){
+            this.handleOpenSnack();
+        }
+    };
+
+    deleteAddress = (addressId) => {
+        this.databaseManager.deleteAddress(addressId)
+            .then(function(result) {
+                console.log('Successfully deleted address', result);
+            })
+            .catch(function(err) {
+                console.log("Failed to delete address", err);
             });
 
         if(!this.databaseManager.isSynced()){
@@ -152,7 +166,7 @@ class App extends Component {
             <NoData/>
         ) : (
             <div className="App">
-                <EditAddress address={this.state.address} saveAddress={this.saveAddress}/>
+                <EditAddress address={this.state.address} saveAddress={this.saveAddress} deleteAddress={this.deleteAddress}/>
                 <AddressShow address={this.state.address} />
                 <div>
                     <Button
