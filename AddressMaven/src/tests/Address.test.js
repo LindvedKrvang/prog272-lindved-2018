@@ -28,6 +28,7 @@ describe('Testing Address component', () => {
 
     it('increases Index when Next is pressed', () => {
         const wrapper = shallow(component).dive();
+        wrapper.instance().refreshFromDatabase(server.addresses);
         const indexBefore = wrapper.state().index;
         wrapper.find('#btnNext').simulate('click');
         const indexAfter = wrapper.state().index;
@@ -37,6 +38,7 @@ describe('Testing Address component', () => {
 
     it('decreases Index when Prev is pressed', () => {
         const wrapper = shallow(component).dive();
+        wrapper.instance().refreshFromDatabase(server.addresses);
         wrapper.find('#btnPrev').simulate('click');
         const indexAfter = wrapper.state().index;
 
