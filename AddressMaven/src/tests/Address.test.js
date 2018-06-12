@@ -4,14 +4,17 @@ import Address from '../components/Address';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MockServer from './mock/MockServer';
+import MockDatabase from './mock/MockDatabase';
 
 configure({ adapter: new Adapter() });
 
 const server = new MockServer();
+const database = new MockDatabase();
 
-const component = <Address server={server} />;
+const component = <Address server={server} dataManager={database} />;
 
 describe('Testing Address component', () => {
+
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);
