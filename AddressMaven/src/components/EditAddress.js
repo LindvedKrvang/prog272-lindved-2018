@@ -157,15 +157,15 @@ class EditAddress extends Component {
                   {fields}
               </DialogContent>
               <DialogActions>
-                  <Button color="primary" onClick={this.save}>
+                  <Button id="SaveButton" color="primary" onClick={this.save}>
                       Save
                       <SaveIcon/>
                   </Button>
-                  <Button color="secondary" onClick={this.delete}>
+                  <Button id="DeleteButton" color="secondary" onClick={this.delete}>
                       Delete
                       <DeleteIcon/>
                   </Button>
-                  <Button onClick={this.handleCloseDialog}>
+                  <Button id="CancelButton" onClick={this.handleCloseDialog}>
                       Cancel
                       <ClearIcon/>
                   </Button>
@@ -196,6 +196,7 @@ class EditAddress extends Component {
         return (
             <div align="right">
                 <Button className={classes.TopRightSpace}
+                        id="EditButton"
                         variant="fab"
                         color="secondary"
                         disabled={this.props.address === null}

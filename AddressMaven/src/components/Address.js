@@ -83,6 +83,7 @@ class App extends Component {
     };
 
     failedDataLoad = () => {
+        if(this.cancelled) return;
         this.setState({
             dataFailedLoading: true
         });
