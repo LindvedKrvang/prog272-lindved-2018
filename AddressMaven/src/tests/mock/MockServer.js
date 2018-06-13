@@ -4,6 +4,8 @@ const unknown = 'unknown';
 export default class MockServer {
     addresses = [
         {
+            _id: unknown,
+            _rev: unknown,
             firstName: unknown,
             lastName: unknown,
             street: unknown,
@@ -16,6 +18,8 @@ export default class MockServer {
             contact: unknown
         },
         {
+            _id: 123456789,
+            _rev: 9876654321,
             firstName: 'Patty',
             lastName: 'Murray',
             street: '154 Russel Senate Office Building',

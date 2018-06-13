@@ -59,7 +59,6 @@ class EditAddress extends Component {
     };
 
     updateField = (fieldId, event) => {
-        console.log(event.target.value);
         switch (fieldId){
             case AddressFieldNames.FirstNameId:{
                 this.setState({ firstName: event.target.value });
