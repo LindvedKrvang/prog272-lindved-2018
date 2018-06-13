@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Address from '../components/Address';
+import NoData from '../components/NoData';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MockServer from './mock/MockServer';
@@ -43,5 +44,13 @@ describe('Testing Address component', () => {
         const indexAfter = wrapper.state().index;
 
         expect(indexAfter).toBe(server.addresses.length - 1);
+    });
+
+    it('Renders NoData when no data is available', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.setState({
+            dataFailedLoading: true
+        });
+        expect(wrapper.find(NoData).length).toBe(1);
     });
 });
