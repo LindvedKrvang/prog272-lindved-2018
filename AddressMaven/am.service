@@ -12,7 +12,7 @@ SyslogIdentifier=am
 User=ubuntu
 Group=ubuntu
 Environment=NODE_ENV=production
-Environment=AM_PORT=30028
+Environment=PORT=30028
 
 [Install]
 WantedBy=multi-user.target
