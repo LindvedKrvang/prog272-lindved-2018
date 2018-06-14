@@ -3,7 +3,7 @@ Description=Run AddressMaven
 After=network.target
 
 [Service]
-ExecStart=/npm start
+ExecStart=/usr/bin/node /npm start
 WorkingDirectory=~/bin/am
 Restart=always
 StandardOutput=syslog
