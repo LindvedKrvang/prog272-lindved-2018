@@ -31,9 +31,4 @@ describe('Testing NoData component', () => {
         const wrapper = shallow(component);
         expect(wrapper.contains(<img src={NoDataImg} alt="No data found"/>)).toBe(true);
     });
-
-    // const complexComponents = wrapper.findWhere(n => n.type() !== 'string');
-    // console.log(wrapper.debug());
-    // console.log(complexComponents.debug());
-    // console.log(wrapper.find("WithStyles (Dialog)").dive());
 });
