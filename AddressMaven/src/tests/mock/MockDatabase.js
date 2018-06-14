@@ -107,4 +107,20 @@ export default class MockDatabase {
             resolve(data);
         });
     };
+
+    sync = () => {
+        // Fake sync implementation;
+    };
+
+    delete = (id) => {
+        if(id === 0){
+            return Promise.resolve("Meant to pass");
+        }else{
+            return Promise.reject("Meant to fail");
+        }
+    };
+
+    getSyncStatus = () => {
+        return false;
+    }
 }

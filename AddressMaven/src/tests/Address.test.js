@@ -53,4 +53,52 @@ describe('Testing Address component', () => {
         });
         expect(wrapper.find(NoData).length).toBe(1);
     });
+
+    it('Sets the state of snackOpen to true', () => {
+        const wrapper = shallow(component).dive();
+        const stateBefore = wrapper.state().snackOpen;
+        expect(stateBefore).toBe(false);
+
+        wrapper.instance().handleOpenSnack();
+        const stateAfter = wrapper.state().snackOpen;
+        expect(stateAfter).toBe(true);
+    });
+
+    it('Sets the state of snackOpen to false', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.instance().handleOpenSnack();
+        const stateBefore = wrapper.state().snackOpen;
+        expect(stateBefore).toBe(true);
+
+        wrapper.instance().handleCloseSnack();
+        const stateAfter = wrapper.state().snackOpen;
+        expect(stateAfter).toBe(false);
+    });
+
+    it('Handles SyncDatabase', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.instance().handleOpenSnack();
+
+        wrapper.instance().syncDatabase();
+
+        const snackOpen = wrapper.state().snackOpen;
+        expect(snackOpen).toBe(false);
+    });
+
+    it('Does not blow when loadData is called with cancelled true', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.instance().cancelled = true;
+        wrapper.instance().loadData();
+    });
+
+    it('Does not blow when refreshFromDatabase is called with cancelled true', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.instance().cancelled = true;
+        wrapper.instance().refreshFromDatabase();
+    });
+
+    it('Successfully delete address', () => {
+        const wrapper = shallow(component).dive();
+        wrapper.instance().deleteAddress(0);
+    });
 });
