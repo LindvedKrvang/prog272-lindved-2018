@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/npm start
-WorkingDirectory=/home/ubuntu/bin/am
+WorkingDirectory=~/bin/am
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
