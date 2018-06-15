@@ -15,7 +15,6 @@ const database = new MockDatabase();
 const component = <Address server={server} dataManager={database} />;
 
 describe('Testing Address component', () => {
-
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);

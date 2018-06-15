@@ -10,7 +10,6 @@ configure({ adapter: new Adapter() });
 const component = <Home />;
 
 describe('Testing Home component', () => {
-
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);
@@ -29,16 +28,32 @@ describe('Testing Home component', () => {
 
     it('Displays Explanation message', () => {
         const wrapper = shallow(component);
-        expect(wrapper.contains(<p>This WebApp allows you to keep track of the addresses of senators in the United States.</p>)).toBe(true);
+        expect(
+            wrapper.contains(
+                <p>
+                    This WebApp allows you to keep track of the addresses of
+                    senators in the United States.
+                </p>
+            )
+        ).toBe(true);
     });
 
     it('Displays NextSteps message', () => {
         const wrapper = shallow(component);
-        expect(wrapper.contains(<p>To get started - Please sync your database by going to 'Init Database' through the menu in the upper left corner.</p>)).toBe(true);
+        expect(
+            wrapper.contains(
+                <p>
+                    To get started - Please sync your database by going to Init
+                    Database through the menu in the upper left corner.
+                </p>
+            )
+        ).toBe(true);
     });
 
     it('Displays NoData img', () => {
         const wrapper = shallow(component);
-        expect(wrapper.contains(<img src={AtSignImg} alt="At logo"/>)).toBe(true);
+        expect(wrapper.contains(<img src={AtSignImg} alt="At logo" />)).toBe(
+            true
+        );
     });
 });

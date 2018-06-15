@@ -13,7 +13,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
-
 const styles = theme => ({
     TopRightSpace: {
         margin: theme.spacing.unit,
@@ -25,7 +24,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.cancelled = false;
-        this.databaseManager = new DatabaseManager(this.props.dataManager, this.refreshFromDatabase, this.failedDataLoad);
+        this.databaseManager = new DatabaseManager(
+            this.props.dataManager,
+            this.refreshFromDatabase,
+            this.failedDataLoad
+        );
 
         this.state = {
             index: 0,
@@ -72,7 +75,7 @@ class App extends Component {
         this.databaseManager.loadAllAddresses();
     };
 
-    refreshFromDatabase = (addresses) => {
+    refreshFromDatabase = addresses => {
         if (this.cancelled) return;
         this.setState({
             addresses: addresses
@@ -83,13 +86,13 @@ class App extends Component {
     };
 
     failedDataLoad = () => {
-        if(this.cancelled) return;
+        if (this.cancelled) return;
         this.setState({
             dataFailedLoading: true
         });
     };
 
-    saveAddress = (address) => {
+    saveAddress = address => {
         const addresses = this.state.addresses;
         addresses[this.state.index] = address;
         this.setState({
@@ -97,29 +100,31 @@ class App extends Component {
             addresses: addresses
         });
 
-        this.databaseManager.saveAddress(address)
-            .then(function(response) {
-                console.log("Successfully saved changes");
+        this.databaseManager
+            .saveAddress(address)
+            .then(function() {
+                console.log('Successfully saved changes');
             })
             .catch(function(err) {
                 console.log('Failed to save changes', err);
             });
 
-        if(!this.databaseManager.isSynced()){
+        if (!this.databaseManager.isSynced()) {
             this.handleOpenSnack();
         }
     };
 
-    deleteAddress = (addressId) => {
-        this.databaseManager.deleteAddress(addressId)
+    deleteAddress = addressId => {
+        this.databaseManager
+            .deleteAddress(addressId)
             .then(function(result) {
                 console.log('Successfully deleted address', result);
             })
             .catch(function(err) {
-                console.log("Failed to delete address", err);
+                console.log('Failed to delete address', err);
             });
 
-        if(!this.databaseManager.isSynced()){
+        if (!this.databaseManager.isSynced()) {
             this.handleOpenSnack();
         }
     };
@@ -138,24 +143,39 @@ class App extends Component {
     handleCloseSnack = () => {
         this.setState({
             snackOpen: false
-        })
+        });
     };
 
     renderSnackBar = () => {
         return (
-            <Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
-                      open={this.state.snackOpen}
-                      autoHideDuration={6000}
-                      onClose={this.handleCloseSnack}
-                      message={<span>Changes saved locally. Sync database to persist changes</span>}
-                      action={[
-                          <Button key="sync" color="secondary" size="small" onClick={this.syncDatabase}>
-                              Sync now
-                          </Button>,
-                          <IconButton key="close" color="inherit" onClick={this.handleCloseSnack}>
-                              <CloseIcon/>
-                          </IconButton>
-                      ]}/>
+            <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                open={this.state.snackOpen}
+                autoHideDuration={6000}
+                onClose={this.handleCloseSnack}
+                message={
+                    <span>
+                        Changes saved locally. Sync database to persist changes
+                    </span>
+                }
+                action={[
+                    <Button
+                        key="sync"
+                        color="secondary"
+                        size="small"
+                        onClick={this.syncDatabase}
+                    >
+                        Sync now
+                    </Button>,
+                    <IconButton
+                        key="close"
+                        color="inherit"
+                        onClick={this.handleCloseSnack}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                ]}
+            />
         );
     };
 
@@ -164,10 +184,14 @@ class App extends Component {
 
         const snackbar = this.renderSnackBar();
         const display = this.state.dataFailedLoading ? (
-            <NoData/>
+            <NoData />
         ) : (
             <div className="App">
-                <EditAddress address={this.state.address} saveAddress={this.saveAddress} deleteAddress={this.deleteAddress}/>
+                <EditAddress
+                    address={this.state.address}
+                    saveAddress={this.saveAddress}
+                    deleteAddress={this.deleteAddress}
+                />
                 <AddressShow address={this.state.address} />
                 <div>
                     <Button
@@ -203,7 +227,8 @@ class App extends Component {
 
 App.propTypes = {
     server: PropTypes.object,
-    classes: PropTypes.object
+    classes: PropTypes.object,
+    dataManager: PropTypes.object
 };
 
 export default withStyles(styles)(App);

@@ -25,12 +25,20 @@ class App extends Component {
                 <div>
                     <Header />
                     <Route exact path={RouteNames.Home} component={Home} />
-                    <Route path={RouteNames.AddressRoute} render={props => (
-                            <Address {...props} server={this.server} dataManager={dataManager}/>
+                    <Route
+                        path={RouteNames.AddressRoute}
+                        render={props => (
+                            <Address
+                                {...props}
+                                server={this.server}
+                                dataManager={dataManager}
+                            />
                         )}
                     />
                     <Route path={RouteNames.GetFileRoute} component={GetFile} />
-                    <Route path={RouteNames.InitDatabase} render={props => (
+                    <Route
+                        path={RouteNames.InitDatabase}
+                        render={props => (
                             <InitDB {...props} dataManager={dataManager} />
                         )}
                     />

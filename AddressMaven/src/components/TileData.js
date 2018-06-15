@@ -32,7 +32,7 @@ export const menuItems = (
         </ListItem>
         <ListItem button component={Link} to={RouteNames.InitDatabase}>
             <ListItemIcon>
-                <StorageIcon/>
+                <StorageIcon />
             </ListItemIcon>
             <ListItemText primary="Init Database" />
         </ListItem>

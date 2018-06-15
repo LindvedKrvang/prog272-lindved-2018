@@ -1,9 +1,8 @@
 import PouchDB from 'pouchdb';
-import * as DbInfo from "./DatabaseInfo";
+import * as DbInfo from './DatabaseInfo';
 
 export default class DatabaseManager {
-
-    constructor(DB, refresh, onError){
+    constructor(DB, refresh, onError) {
         this.database = DB;
         this.refresh = refresh;
         this.onError = onError;
@@ -46,16 +45,17 @@ export default class DatabaseManager {
                     };
                 });
                 that.refresh(addresses);
-            }).catch(() => {
+            })
+            .catch(() => {
                 this.onError();
             });
     };
 
-    saveAddress = (address) => {
+    saveAddress = address => {
         return this.database.save(address);
     };
 
-    deleteAddress = (addressId) => {
+    deleteAddress = addressId => {
         return this.database.delete(addressId);
     };
 
@@ -65,5 +65,5 @@ export default class DatabaseManager {
 
     sync = () => {
         this.database.sync();
-    }
+    };
 }

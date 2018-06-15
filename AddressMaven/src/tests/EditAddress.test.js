@@ -5,10 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import ReactDOM from 'react-dom';
 import MockServer from '../tests/mock/MockServer';
 import { AddressFieldNames } from '../be/AddressFieldNames';
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from '@material-ui/core/DialogContent';
-import Button from "@material-ui/core/Button";
+import Dialog from '@material-ui/core/Dialog';
 
 configure({ adapter: new Adapter() });
 
@@ -23,25 +20,28 @@ const deleteAddress = () => {
     // Mock Implementation
 };
 
-const component = <EditAddress address={address} saveAddress={saveAddress} deleteAddress={deleteAddress}/>;
+const component = (
+    <EditAddress
+        address={address}
+        saveAddress={saveAddress}
+        deleteAddress={deleteAddress}
+    />
+);
 
 describe('Testing EditAddress component', () => {
-
-
     const testFieldForData = (fieldId, expectedResult) => {
         const wrapper = shallow(component).dive();
-        wrapper.find("#EditButton").simulate("click");
+        wrapper.find('#EditButton').simulate('click');
         expect(wrapper.find(`#${fieldId}`).props().value).toBe(expectedResult);
     };
 
     const testStateWhenEdited = (wrapper, property, fieldId) => {
-        const mockedEvent = { target: { value: property + "s" } };
-        wrapper.find("#EditButton").simulate("click");
-        wrapper.find(`#${fieldId}`).simulate("change", mockedEvent)
-        return property + "s";
+        const mockedEvent = { target: { value: property + 's' } };
+        wrapper.find('#EditButton').simulate('click');
+        wrapper.find(`#${fieldId}`).simulate('change', mockedEvent);
+        return property + 's';
         // expect(result).toBe(property + "s");
     };
-
 
     it('Renders without crashing', () => {
         const div = document.createElement('div');
@@ -56,7 +56,7 @@ describe('Testing EditAddress component', () => {
 
     it('Sets Dialog open to true when EditButton is clicked', () => {
         const wrapper = shallow(component).dive();
-        wrapper.find("#EditButton").simulate("click");
+        wrapper.find('#EditButton').simulate('click');
         expect(wrapper.find(Dialog).props().open).toBe(true);
     });
 
@@ -81,76 +81,116 @@ describe('Testing EditAddress component', () => {
 
     it('Diplays the Save button', () => {
         const wrapper = shallow(component).dive();
-        expect(wrapper.find("#SaveButton").length).toBe(1);
+        expect(wrapper.find('#SaveButton').length).toBe(1);
     });
 
     it('Diplays the Delete button', () => {
         const wrapper = shallow(component).dive();
-        expect(wrapper.find("#DeleteButton").length).toBe(1);
+        expect(wrapper.find('#DeleteButton').length).toBe(1);
     });
 
     it('Diplays the Cancel button', () => {
         const wrapper = shallow(component).dive();
-        expect(wrapper.find("#CancelButton").length).toBe(1);
+        expect(wrapper.find('#CancelButton').length).toBe(1);
     });
 
     it('Updates firstName when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.firstName, AddressFieldNames.FirstNameId );
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.firstName,
+            AddressFieldNames.FirstNameId
+        );
         expect(wrapper.state().firstName).toBe(expectedResult);
     });
 
     it('Updates lastName when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.lastName, AddressFieldNames.LastNameId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.lastName,
+            AddressFieldNames.LastNameId
+        );
         expect(wrapper.state().lastName).toBe(expectedResult);
     });
 
     it('Updates street when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.street, AddressFieldNames.StreetId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.street,
+            AddressFieldNames.StreetId
+        );
         expect(wrapper.state().street).toBe(expectedResult);
     });
 
     it('Updates city when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.city, AddressFieldNames.CityId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.city,
+            AddressFieldNames.CityId
+        );
         expect(wrapper.state().city).toBe(expectedResult);
     });
 
     it('Updates state when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.state, AddressFieldNames.StateId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.state,
+            AddressFieldNames.StateId
+        );
         expect(wrapper.state().state).toBe(expectedResult);
     });
 
     it('Updates zip when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.zip, AddressFieldNames.ZipId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.zip,
+            AddressFieldNames.ZipId
+        );
         expect(wrapper.state().zip).toBe(expectedResult);
     });
 
     it('Updates phone when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.phone, AddressFieldNames.PhoneId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.phone,
+            AddressFieldNames.PhoneId
+        );
         expect(wrapper.state().phone).toBe(expectedResult);
     });
 
     it('Updates website when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.website, AddressFieldNames.WebsiteId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.website,
+            AddressFieldNames.WebsiteId
+        );
         expect(wrapper.state().website).toBe(expectedResult);
     });
 
     it('Updates email when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.email, AddressFieldNames.EmailId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.email,
+            AddressFieldNames.EmailId
+        );
         expect(wrapper.state().email).toBe(expectedResult);
     });
 
     it('Updates contact when changed', () => {
         const wrapper = shallow(component).dive();
-        const expectedResult = testStateWhenEdited(wrapper, address.contact, AddressFieldNames.ContactId);
+        const expectedResult = testStateWhenEdited(
+            wrapper,
+            address.contact,
+            AddressFieldNames.ContactId
+        );
         expect(wrapper.state().contact).toBe(expectedResult);
     });
 
@@ -159,7 +199,7 @@ describe('Testing EditAddress component', () => {
     });
 
     it('Displays the lastName in the Dialog', () => {
-       testFieldForData(AddressFieldNames.LastNameId, address.lastName);
+        testFieldForData(AddressFieldNames.LastNameId, address.lastName);
     });
 
     it('Displays the street in the Dialog', () => {
@@ -193,9 +233,4 @@ describe('Testing EditAddress component', () => {
     it('Displays the contact in the Dialog', () => {
         testFieldForData(AddressFieldNames.ContactId, address.contact);
     });
-
-    // const complexComponents = wrapper.findWhere(n => n.type() !== 'string');
-    // console.log(wrapper.debug());
-    // console.log(complexComponents.debug());
-    // console.log(wrapper.find("WithStyles (Dialog)").dive());
 });

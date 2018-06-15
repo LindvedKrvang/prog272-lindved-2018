@@ -29,7 +29,6 @@ class AddressShow extends Component {
             );
         return (
             <div className="App">
-
                 <div className="Card" align="center">
                     <br />
                     {address}

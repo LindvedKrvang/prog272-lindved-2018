@@ -10,7 +10,6 @@ configure({ adapter: new Adapter() });
 const component = <NoData />;
 
 describe('Testing NoData component', () => {
-
     it('Renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(component, div);
@@ -29,6 +28,8 @@ describe('Testing NoData component', () => {
 
     it('Displays NoData img', () => {
         const wrapper = shallow(component);
-        expect(wrapper.contains(<img src={NoDataImg} alt="No data found"/>)).toBe(true);
+        expect(
+            wrapper.contains(<img src={NoDataImg} alt="No data found" />)
+        ).toBe(true);
     });
 });
