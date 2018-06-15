@@ -1,3 +1,5 @@
+The 3 files with highest coverage is: AddressShow.js, Home.js and NoData.js. They all have 100% coverage.
+
 This project was bootstrapped with [Create React AddressShow](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
