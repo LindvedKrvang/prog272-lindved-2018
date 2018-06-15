@@ -96,9 +96,4 @@ describe('Testing Address component', () => {
         wrapper.instance().cancelled = true;
         wrapper.instance().refreshFromDatabase();
     });
-
-    it('Successfully delete address', () => {
-        const wrapper = shallow(component).dive();
-        wrapper.instance().deleteAddress(0);
-    });
 });
